@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #fbfaf5;
+  --color-foreground: #14201b;
+  --color-surface: #f3f1e8;
+  --color-muted-foreground: #5d6a63;
+  --color-border: rgba(20, 32, 27, 0.1);
+  --color-brand: #0c241b;
+  --color-brand-foreground: #fbfaf5;
+  --color-green: #0f7f47;
+  --color-saffron: #f08a1d;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; background: var(--color-background); }
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+  }
+  ::selection { background: var(--color-saffron); color: var(--color-brand); }
+  :focus-visible { outline: 2px solid var(--color-saffron); outline-offset: 3px; }
+}
+
+@utility font-mono-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@utility marquee {
+  animation: marquee 32s linear infinite;
+}
+
+@utility hover-lift {
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 0.35s ease;
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px -18px rgba(12, 36, 27, 0.4);
+  }
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
