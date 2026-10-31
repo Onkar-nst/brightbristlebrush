@@ -13,7 +13,7 @@ export default function ContactPage() {
     <>
       <PageHero eyebrow="Get in touch" title="Contact Us" subtitle="Call Us or Fill the Form" />
 
-      <section className="py-20 md:py-28">
+      <section className="py-12 md:py-17">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 md:px-6 lg:grid-cols-2">
           <div>
             <AnimatedHeading text="Don’t hesitate to contact us" className="text-4xl leading-[1.08] md:text-5xl" />
@@ -38,10 +38,10 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-surface py-20 md:py-28">
+      <section className="bg-surface py-12 md:py-17">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
           <AnimatedHeading text="Locations" className="text-4xl md:text-5xl" />
-          <div className="mt-12 grid gap-5 md:grid-cols-2">
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
             {LOCATIONS.map((l, i) => (
               <Reveal key={l.title} delay={(i % 2) * 110} className="h-full">
                 <div className="hover-lift h-full rounded-2xl border bg-background p-7">

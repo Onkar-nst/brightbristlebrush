@@ -49,7 +49,7 @@ export type Product = {
   name: string;
   body: string;
   specs: [string, string][];
-  palette: string[];
+  image: string;
 };
 
 const GREY_BODY =
@@ -75,9 +75,9 @@ export const PRODUCTS: Product[] = [
       ["Packaging", "25 kg cartons with company-marked wrappers"],
       ["Certification", "ISO 9001:2015"],
     ],
-    palette: ["#1d1a17", "#35302a", "#4e463c"],
+    image: "/images/p-black.jpg",
   },
-  { name: "Grey Pig Hair", body: GREY_BODY, specs: GREY_SPECS, palette: ["#8b8b86", "#a9a9a3", "#6e6e6a"] },
+  { name: "Grey Pig Hair", body: GREY_BODY, specs: GREY_SPECS, image: "/images/p-grey.jpg" },
   {
     name: "Butt Cut / Root Cut Pig Bristles",
     body: "Our high-quality Butt Cut / Root Cut Pig Bristles are sourced from India and offer exceptional durability, natural color, and extra stiffness. These bristles are ideal for a wide range of applications, including industrial brushes and household or self-care brushes. ISO 9001 certified and packaged in ropes, our premium Butt Cut / Root Cut Pig Bristles are the perfect choice for demanding applications.",
@@ -89,9 +89,9 @@ export const PRODUCTS: Product[] = [
       ["Stiffness", "Extra stiff, premium bristle"],
       ["Packaging", "25kg cartons"],
     ],
-    palette: ["#0f0e0d", "#201e1b", "#2d2a26"],
+    image: "/images/p-buttcut.jpg",
   },
-  { name: "White/Grey/Black Natural Pig Hair", body: GREY_BODY, specs: GREY_SPECS, palette: ["#e9e6dc", "#8f8f8a", "#22201d"] },
+  { name: "White/Grey/Black Natural Pig Hair", body: GREY_BODY, specs: GREY_SPECS, image: "/images/p-wgb.jpg" },
 ];
 
 export const SERVICES = [

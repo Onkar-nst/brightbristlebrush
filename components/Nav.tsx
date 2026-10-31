@@ -35,7 +35,7 @@ export function Nav() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 md:px-6">
         <Link href="/" onClick={() => setOpen(false)} aria-label={`${COMPANY} home`}>
-          <Image src="/images/logo-white.png" alt="" width={768} height={224} priority className="h-11 w-auto md:h-12" />
+          <Image src="/images/logo-white.png" alt="" width={768} height={224} priority className="h-10 w-auto md:h-12" />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -73,7 +73,7 @@ export function Nav() {
             animate={{ height: "100dvh", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden md:hidden"
+            className="overflow-y-auto md:hidden"
           >
             <div className="flex flex-col px-5 pt-6">
               {NAV_LINKS.map(({ label, href }, i) => (

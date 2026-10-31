@@ -12,9 +12,9 @@ export function PageHero({ eyebrow, title, subtitle }: { eyebrow: string; title:
       <div className="absolute inset-x-0 bottom-0 h-3/4 opacity-60">
         <Bristles palette={PALETTE} density={0.5} interactive />
       </div>
-      <div className="relative mx-auto max-w-7xl px-5 pt-36 pb-20 md:px-6 md:pt-44 md:pb-28">
+      <div className="relative mx-auto max-w-7xl px-5 pt-28 pb-12 md:px-6 md:pt-32 md:pb-17">
         <Eyebrow light>{eyebrow}</Eyebrow>
-        <AnimatedHeading as="h1" text={title} className="mt-6 max-w-4xl text-5xl leading-[1.05] md:text-7xl" />
+        <AnimatedHeading as="h1" text={title} className="mt-6 max-w-4xl text-[clamp(2.5rem,11vw,3rem)] leading-[1.05] md:text-7xl" />
         {subtitle && <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/80 md:text-lg">{subtitle}</p>}
       </div>
     </section>

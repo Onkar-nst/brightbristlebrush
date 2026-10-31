@@ -14,7 +14,7 @@ export default function AboutPage() {
     <>
       <PageHero eyebrow="Who we are" title="About Us" />
 
-      <section className="py-20 md:py-28">
+      <section className="py-12 md:py-17">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 md:px-6 lg:grid-cols-2">
           <Reveal direction="right">
             <div className="overflow-hidden rounded-3xl">
@@ -29,7 +29,25 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-brand py-20 text-white md:py-28">
+      <section className="pb-12 md:pb-17">
+        <div className="mx-auto max-w-5xl px-5 md:px-6">
+          <Reveal direction="scale">
+            <div className="relative aspect-video overflow-hidden rounded-3xl border bg-brand shadow-2xl">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/U3W2Mj1fMCE?rel=0"
+                title="Bright Brush and Bristle Works India video"
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-brand py-12 text-white md:py-17">
         <div className="mx-auto grid max-w-7xl gap-14 px-5 md:px-6 lg:grid-cols-2">
           <div>
             <Eyebrow light>Compliance</Eyebrow>
@@ -50,11 +68,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="py-12 md:py-17">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
           <Eyebrow>Services</Eyebrow>
           <AnimatedHeading text="Overview of Our Services" className="mt-6 text-4xl md:text-5xl" />
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
             {SERVICES.map((s, i) => (
               <Reveal key={s.title} delay={i * 110} className="h-full">
                 <div className="hover-lift h-full rounded-2xl border bg-surface p-7">
@@ -68,7 +86,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="pb-20 md:pb-28">
+      <section className="pb-12 md:pb-17">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
           <Reveal>
             <div className="rounded-3xl bg-surface p-8 md:p-12">

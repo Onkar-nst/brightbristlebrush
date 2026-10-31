@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Landmark, MapPin, Plane, ShieldCheck } from "lucide-react";
@@ -35,9 +36,10 @@ export default function Home() {
           <Bristles palette={HERO_PALETTE} interactive />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-brand via-brand/70 to-transparent" />
-        <motion.div variants={container} initial="hidden" animate="show" className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-5 py-28 md:px-6">
+        <motion.div variants={container} initial="hidden" animate="show" className="relative mx-auto grid min-h-[100svh] max-w-7xl items-center gap-10 px-5 pt-24 pb-12 md:px-6 lg:grid-cols-2 lg:py-24">
+          <div>
           <motion.div variants={item}><Eyebrow light>Bright Brush and Bristles</Eyebrow></motion.div>
-          <motion.h1 variants={item} className="mt-6 max-w-4xl text-5xl leading-[1.02] font-medium tracking-[-0.035em] sm:text-6xl md:text-8xl">
+          <motion.h1 variants={item} className="mt-6 max-w-4xl text-[clamp(2.6rem,11vw,3.75rem)] leading-[1.02] font-medium tracking-[-0.035em] lg:text-7xl">
             Global reach, local touch.
           </motion.h1>
           <motion.p variants={item} className="mt-6 max-w-xl text-base leading-relaxed text-white/80 md:text-lg">
@@ -50,6 +52,10 @@ export default function Home() {
             <Link href="/contact-us/" className="inline-flex items-center rounded-full border border-white/30 bg-white/5 px-6 py-3 text-sm font-medium backdrop-blur transition-colors hover:bg-white/15">
               Contact Us
             </Link>
+          </motion.div>
+          </div>
+          <motion.div variants={item} className="relative aspect-[2560/2189] overflow-hidden rounded-3xl border border-white/15 shadow-2xl">
+            <Image src="/images/range.jpg" alt="Range of bristle bundles from Bright Brush and Bristle Works India" fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           </motion.div>
         </motion.div>
       </section>
@@ -64,13 +70,14 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="py-20 md:py-28">
+      <section className="py-12 md:py-17">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 md:px-6 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Eyebrow>Welcome</Eyebrow>
             <AnimatedHeading text="Welcome to Bright Brush and Bristles Work India" className="mt-6 text-4xl leading-[1.08] md:text-5xl" />
           </div>
           <Reveal className="space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg lg:col-span-7" direction="left">
+            <div className="relative aspect-[1450/650] overflow-hidden rounded-2xl"><Image src="/images/inspection.jpg" alt="Measuring packed bristle bundles with calipers" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" /></div>
             <p>Bright Brush and Bristles Work India is among the oldest companies in India operating in this industry. Established in 2018, the company has set up its manufacturing and marketing unit in Uttar Pradesh, India. We are a certified manufacturer of pig hair and boar bristles and have been awarded the ISO 9001 Quality Certificate.</p>
             <p>Our sister concern, Sri Sitaram Trading Company, holds 40% to 55% of the Indian domestic market for pig bristles. As one of the largest manufacturer of bristles in India, we take pride in delivering quality products with transparency. This approach has enabled us to establish a strong foothold in the international market, and we are continuously expanding.</p>
             <p>Bright Brush and Bristles Work India focuses solely on exports and imports. We do not engage in domestic sales, which are exclusively handled by our sister concern.</p>
@@ -78,11 +85,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-surface py-20 md:py-28">
+      <section className="bg-surface py-12 md:py-17">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
           <Eyebrow>Features</Eyebrow>
           <AnimatedHeading text="Features" className="mt-6 text-4xl md:text-5xl" />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {FEATURES.map((f, i) => (
               <Reveal key={f.title} delay={(i % 3) * 110} className="h-full">
                 <div className="group hover-lift h-full rounded-2xl border bg-background p-6 hover:border-green/40">
@@ -98,17 +105,23 @@ export default function Home() {
 
           <div className="mt-5 grid gap-5 lg:grid-cols-2">
             <Reveal direction="right" className="h-full">
-              <div className="h-full rounded-2xl bg-brand p-7 text-white md:p-9">
+              <div className="h-full overflow-hidden rounded-2xl bg-brand text-white">
+                <div className="relative aspect-[1450/650]"><Image src="/images/office.jpg" alt="Bright Brush and Bristle Works India factory building" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" /></div>
+                <div className="p-6 md:p-9">
                 <MapPin className="text-saffron" size={24} />
                 <h3 className="mt-5 text-2xl font-semibold tracking-[-0.02em]">Factory Premises</h3>
                 <p className="mt-4 leading-relaxed text-white/75">{FACTORY_PREMISES}</p>
+                </div>
               </div>
             </Reveal>
             <Reveal direction="left" className="h-full">
-              <div className="h-full rounded-2xl bg-brand p-7 text-white md:p-9">
+              <div className="h-full overflow-hidden rounded-2xl bg-brand text-white">
+                <div className="relative aspect-[1450/650]"><Image src="/images/delivery.png" alt="Worldwide delivery routes by road, sea and air" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" /></div>
+                <div className="p-6 md:p-9">
                 <Plane className="text-saffron" size={24} />
                 <h3 className="mt-5 text-2xl font-semibold tracking-[-0.02em]">Transport &amp; Transit</h3>
                 <p className="mt-4 leading-relaxed text-white/75">{TRANSPORT}</p>
+                </div>
               </div>
             </Reveal>
           </div>
@@ -116,8 +129,8 @@ export default function Home() {
           <dl className="mt-5 grid grid-cols-2 gap-5 lg:grid-cols-4">
             {STATS.map((s, i) => (
               <Reveal key={s.label} delay={i * 90} direction="scale">
-                <div className="rounded-2xl border bg-background p-6">
-                  <dd className="text-2xl font-semibold tracking-[-0.03em] text-green md:text-4xl">
+                <div className="h-full rounded-2xl border bg-background p-4 sm:p-6">
+                  <dd className="text-xl font-semibold tracking-[-0.03em] text-green sm:text-2xl md:text-4xl">
                     {s.prefix}<CountUp to={s.to} format={(n) => (s.thousands ? n.toLocaleString("en-US") : String(n))} />{s.suffix}
                   </dd>
                   <dt className="mt-2 text-sm text-muted-foreground">{s.label}</dt>
@@ -130,13 +143,13 @@ export default function Home() {
 
       <section className="relative overflow-hidden bg-saffron text-brand">
         <div className="absolute inset-x-0 bottom-0 h-full opacity-35"><Bristles palette={BANNER_PALETTE} density={0.7} /></div>
-        <div className="relative mx-auto max-w-7xl px-5 py-24 text-center md:px-6 md:py-32">
+        <div className="relative mx-auto max-w-7xl px-5 py-14 text-center md:px-6 md:py-19">
           <AnimatedHeading text="Premium Bristles Delivered Globally" className="mx-auto max-w-4xl text-4xl leading-[1.05] md:text-7xl" />
           <Reveal delay={200}><p className="mx-auto mt-6 max-w-xl text-lg">High-quality pig hair and boar bristles, crafted with precision and shipped worldwide.</p></Reveal>
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="py-12 md:py-17">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 md:px-6 lg:grid-cols-2">
           <div>
             <Eyebrow>Certified</Eyebrow>

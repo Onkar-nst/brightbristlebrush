@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bristles } from "@/components/Bristles";
+import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { PRODUCTS } from "@/lib/site";
@@ -10,13 +10,13 @@ export default function ProductsPage() {
   return (
     <>
       <PageHero eyebrow="What we make" title="Products" />
-      <section className="py-20 md:py-28">
-        <div className="mx-auto max-w-7xl space-y-20 px-5 md:space-y-28 md:px-6">
+      <section className="py-12 md:py-17">
+        <div className="mx-auto max-w-7xl space-y-12 px-5 md:space-y-17 md:px-6">
           {PRODUCTS.map((p, i) => (
             <article key={p.name} className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
               <Reveal direction={i % 2 ? "left" : "right"} className={i % 2 ? "lg:order-2" : ""}>
-                <div className="relative h-72 overflow-hidden rounded-3xl border bg-surface md:h-[28rem]">
-                  <Bristles palette={p.palette} density={1.4} />
+                <div className="group relative aspect-[4/3] overflow-hidden rounded-3xl border bg-surface">
+                  <Image src={p.image} alt={p.name} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                   <span className="font-mono-label absolute top-5 left-5 rounded-full bg-background/85 px-3 py-1 text-muted-foreground backdrop-blur">
                     0{i + 1}
                   </span>
@@ -28,7 +28,7 @@ export default function ProductsPage() {
                 <h3 className="font-mono-label mt-7 text-green">Key Features</h3>
                 <dl className="mt-2 divide-y border-y">
                   {p.specs.map(([k, v]) => (
-                    <div key={k} className="grid grid-cols-[7.5rem_1fr] gap-4 py-3 text-sm">
+                    <div key={k} className="grid grid-cols-[6rem_1fr] sm:grid-cols-[7.5rem_1fr] gap-4 py-3 text-sm">
                       <dt className="text-muted-foreground">{k}</dt>
                       <dd className="font-medium">{v}</dd>
                     </div>

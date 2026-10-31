@@ -10,7 +10,7 @@ export default function LegalPage() {
   return (
     <>
       <PageHero eyebrow="Compliance" title="Legal" />
-      <section className="py-20 md:py-28">
+      <section className="py-12 md:py-17">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
           <div className="grid gap-10 lg:grid-cols-12">
             <AnimatedHeading text="Legal Certifications" className="text-4xl leading-[1.08] md:text-5xl lg:col-span-5" />

@@ -8,8 +8,8 @@ const heading = "font-mono-label font-bold text-white/90";
 export function Footer() {
   return (
     <footer className="bg-brand text-white">
-      <div className="mx-auto max-w-7xl px-5 py-14 md:px-6">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12">
+      <div className="mx-auto max-w-7xl px-5 py-9 md:px-6">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4 lg:pr-8">
             <Image src="/images/logo-white.png" alt={COMPANY} width={768} height={224} className="h-14 w-auto" />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
@@ -41,7 +41,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-12 flex flex-col justify-between gap-3 border-t border-white/15 pt-6 text-xs text-white/50 md:flex-row">
+        <div className="mt-8 flex flex-col justify-between gap-3 border-t border-white/15 pt-6 text-xs text-white/50 md:flex-row">
           <span>© {new Date().getFullYear()} {COMPANY}. All rights reserved.</span>
           <span>Designed by <a href="https://www.brandedsystem.com/" className="underline underline-offset-2 hover:text-white">Branded System</a></span>
         </div>
