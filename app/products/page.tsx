@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Stagger, StaggerItem } from "@/components/Motion";
 import { PageHero } from "@/components/PageHero";
 import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
@@ -21,14 +22,14 @@ export default function ProductsPage() {
               <h2 className="mt-1 font-serif text-4xl leading-[1.08] md:text-[2.75rem]">{p.name}</h2>
               <p className="mt-4 leading-relaxed text-muted-foreground">{p.body}</p>
               <h3 className="mt-6 border-b border-foreground pb-1.5 text-sm font-semibold">Key Features</h3>
-              <dl>
+              <Stagger as="dl">
                 {p.specs.map(([k, v]) => (
-                  <div key={k} className="grid grid-cols-[6rem_1fr] gap-4 border-b py-2 text-[15px]">
+                  <StaggerItem key={k} className="grid grid-cols-[6rem_1fr] gap-4 border-b py-2 text-[15px]">
                     <dt className="text-muted-foreground">{k}</dt>
                     <dd>{v}</dd>
-                  </div>
+                  </StaggerItem>
                 ))}
-              </dl>
+              </Stagger>
             </Reveal>
           </article>
         ))}

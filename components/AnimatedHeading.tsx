@@ -3,24 +3,28 @@
 import { motion } from "framer-motion";
 
 const rise = {
-  hidden: { y: "105%" },
-  show: { y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] as const } },
+  hidden: { y: "110%", rotate: 4 },
+  show: { y: 0, rotate: 0, transition: { duration: 0.95, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
-// Plain line rise behind a mask. The heading watches the viewport, not the
-// span: a span fully hidden by the mask would never count as in view.
+// Each word rises from behind its own mask. The heading watches the viewport,
+// because a word hidden by its mask never counts as in view.
 export function AnimatedHeading({ text, as = "h2", className = "" }: { text: string; as?: "h1" | "h2"; className?: string }) {
   const Tag = as === "h1" ? motion.h1 : motion.h2;
   return (
     <Tag
+      aria-label={text}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
-      className={`overflow-hidden pb-[0.12em] font-serif font-normal tracking-[-0.015em] ${className}`}
+      transition={{ staggerChildren: 0.06 }}
+      className={`font-serif font-normal tracking-[-0.015em] ${className}`}
     >
-      <motion.span className="block" variants={rise}>
-        {text}
-      </motion.span>
+      {text.split(" ").map((word, i) => (
+        <span key={i} aria-hidden className="-mx-[0.06em] -my-[0.16em] mr-[0.18em] inline-block overflow-hidden px-[0.06em] py-[0.16em] align-bottom">
+          <motion.span className="inline-block origin-bottom-left" variants={rise}>{word}</motion.span>
+        </span>
+      ))}
     </Tag>
   );
 }

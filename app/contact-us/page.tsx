@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AnimatedHeading } from "@/components/AnimatedHeading";
 import { ContactForm } from "@/components/ContactForm";
+import { Rule, Stagger, StaggerItem } from "@/components/Motion";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { EMAIL, HOURS, LOCATIONS, PHONES, telHref } from "@/lib/site";
@@ -13,7 +14,7 @@ export default function ContactPage() {
       <PageHero title="Contact Us" subtitle="Call Us or Fill the Form" />
 
       <section className="pb-12 md:pb-17">
-        <div className="mx-auto mb-8 max-w-7xl px-5 md:px-6"><hr className="border-foreground" /></div>
+        <div className="mx-auto mb-8 max-w-7xl px-5 md:px-6"><Rule /></div>
         <div className="mx-auto grid max-w-7xl gap-12 px-5 md:px-6 lg:grid-cols-12 lg:gap-6">
           <div className="lg:col-span-6">
             <AnimatedHeading text="Don’t hesitate to contact us" className="text-4xl leading-[1.08] md:text-[3.25rem]" />
@@ -30,8 +31,9 @@ export default function ContactPage() {
       <section className="bg-surface py-12 md:py-17">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
           <AnimatedHeading text="Locations" className="border-b border-foreground pb-4 text-4xl md:text-6xl" />
+          <Stagger>
           {LOCATIONS.map((l) => (
-            <div key={l.title} className="grid gap-2 border-b py-6 md:grid-cols-12 md:gap-6">
+            <StaggerItem key={l.title} className="grid gap-2 border-b py-6 md:grid-cols-12 md:gap-6">
               <h3 className="font-serif text-2xl md:col-span-4">{l.title}</h3>
               <p className="leading-relaxed md:col-span-4">{l.address}</p>
               {l.phone && (
@@ -40,8 +42,9 @@ export default function ContactPage() {
                   <a href={`mailto:${l.email}`} className="w-fit break-all hover:text-green">{l.email}</a>
                 </p>
               )}
-            </div>
+            </StaggerItem>
           ))}
+          </Stagger>
         </div>
       </section>
     </>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Sans, Newsreader } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { ScrollProgress } from "@/components/Motion";
 import "./globals.css";
 
 const sans = Instrument_Sans({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={`${sans.variable} ${newsreader.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
+        <ScrollProgress />
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

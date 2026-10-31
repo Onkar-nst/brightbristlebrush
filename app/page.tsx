@@ -1,46 +1,22 @@
 "use client";
 
-import Link from "next/link";
-import { motion } from "framer-motion";
 import { AnimatedHeading } from "@/components/AnimatedHeading";
+import { HomeHero } from "@/components/HomeHero";
+import { CountUp, Marquee, Rule, ScrollText, Stagger, StaggerItem } from "@/components/Motion";
 import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
 import { BANK, FACTORY_PREMISES, FEATURES, TRANSPORT } from "@/lib/site";
 
 const FACTS = [
-  ["20,000 sq. ft.", "Total factory area"],
-  ["50 to 70", "Workmen on-site"],
-  ["4 days", "To reach New Delhi"],
+  { label: "Total factory area", to: 20000, after: " sq. ft." },
+  { label: "Workmen on-site", before: "50 to ", to: 70 },
+  { label: "To reach New Delhi", to: 4, after: " days" },
 ];
 
 export default function Home() {
   return (
     <>
-      <section className="pt-22 md:pt-24">
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 pt-10 md:px-6 lg:grid-cols-12 lg:gap-6 lg:pt-14">
-          <div className="lg:col-span-7">
-            <p className="text-sm">Bright Brush and Bristles</p>
-            <motion.h1
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-4 font-serif text-[clamp(3.25rem,11vw,7.5rem)] leading-[0.95] tracking-[-0.025em]"
-            >
-              Global reach, <em className="text-green">local touch.</em>
-            </motion.h1>
-          </div>
-          <div className="self-end pb-2 lg:col-span-4 lg:col-start-9">
-            <p className="text-base leading-relaxed text-muted-foreground">
-              We specialize in manufacturing and exporting high-quality pig hair products, including boar bristle and hog hair, as a dedicated and focused supplier of these items.
-            </p>
-            <div className="mt-5 flex gap-6 text-[15px] font-semibold">
-              <Link href="/products/" className="underline decoration-saffron decoration-2 underline-offset-4 hover:text-green">See the products</Link>
-              <Link href="/contact-us/" className="underline decoration-foreground/30 decoration-2 underline-offset-4 hover:text-green">Contact us</Link>
-            </div>
-          </div>
-        </div>
-        <Photo src="/images/range.jpg" alt="Range of bristle bundles from Bright Brush and Bristle Works India" ratio="aspect-[4/3] md:aspect-[16/7]" position="object-[center_72%]" priority className="mt-8 md:mt-10" />
-      </section>
+      <HomeHero />
 
       <section className="py-12 md:py-17">
         <div className="mx-auto grid max-w-7xl gap-8 px-5 md:px-6 lg:grid-cols-12 lg:gap-6">
@@ -58,20 +34,23 @@ export default function Home() {
         </div>
       </section>
 
+      <Marquee items={["Pig Hair", "Boar Bristle", "Hog Hair", "ISO 9001", "Free Samples", "Live Factory Tour"]} speed={1.6} className="border-y border-foreground py-3 font-serif text-3xl md:text-5xl" />
+
       <section className="bg-brand py-12 text-brand-foreground md:py-17">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
           <AnimatedHeading text="Features" className="border-b border-white/30 pb-4 text-5xl md:text-7xl" />
-          <ol className="grid md:grid-cols-2 md:gap-x-12">
+          <Stagger as="ol" className="grid md:grid-cols-2 md:gap-x-12">
             {FEATURES.map((f, i) => (
-              <li key={f.title} className="grid grid-cols-[2.25rem_1fr] border-b border-white/20 py-5">
-                <span className="font-serif text-lg text-saffron italic">{i + 1}</span>
-                <div>
-                  <h3 className="font-serif text-2xl">{f.title}</h3>
-                  <p className="mt-1.5 text-[15px] leading-relaxed text-white/70">{f.body}</p>
+              <StaggerItem as="li" key={f.title} className="group relative grid grid-cols-[2.25rem_1fr] border-b border-white/20 py-5">
+                <span className="font-serif text-lg text-saffron italic transition-transform duration-300 group-hover:scale-125">{i + 1}</span>
+                <div className="transition-transform duration-500 ease-out group-hover:translate-x-2">
+                  <h3 className="font-serif text-2xl transition-colors duration-300 group-hover:text-saffron">{f.title}</h3>
+                  <p className="mt-1.5 text-[15px] leading-relaxed text-white/70 transition-colors duration-300 group-hover:text-white">{f.body}</p>
                 </div>
-              </li>
+                <span aria-hidden className="absolute inset-x-0 -bottom-px h-px origin-left scale-x-0 bg-saffron transition-transform duration-700 ease-out group-hover:scale-x-100" />
+              </StaggerItem>
             ))}
-          </ol>
+          </Stagger>
         </div>
       </section>
 
@@ -81,11 +60,12 @@ export default function Home() {
           <div className="px-5 py-10 md:px-10 md:py-14 lg:col-span-5">
             <h3 className="font-serif text-4xl">Factory Premises</h3>
             <p className="mt-4 text-[17px] leading-relaxed">{FACTORY_PREMISES}</p>
-            <dl className="mt-6 border-t border-foreground">
-              {FACTS.map(([value, label]) => (
-                <div key={label} className="flex items-baseline justify-between gap-4 border-b py-2.5">
-                  <dt className="text-sm text-muted-foreground">{label}</dt>
-                  <dd className="font-serif text-xl">{value}</dd>
+            <Rule className="mt-6 bg-foreground" />
+            <dl>
+              {FACTS.map((f) => (
+                <div key={f.label} className="flex items-baseline justify-between gap-4 border-b py-2.5">
+                  <dt className="text-sm text-muted-foreground">{f.label}</dt>
+                  <dd className="font-serif text-2xl">{f.before}<CountUp to={f.to} format={(n) => n.toLocaleString("en-US")} />{f.after}</dd>
                 </div>
               ))}
             </dl>
@@ -100,9 +80,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-b border-foreground">
-        <div className="mx-auto max-w-7xl px-5 py-12 md:px-6 md:py-19">
-          <AnimatedHeading text="Premium Bristles Delivered Globally" className="text-5xl leading-[1] md:text-8xl" />
+      <section className="overflow-hidden border-b border-foreground py-12 md:py-19">
+        <h2 className="sr-only">Premium Bristles Delivered Globally</h2>
+        <div aria-hidden className="font-serif leading-[1.05] tracking-[-0.02em]">
+          <ScrollText className="text-[13vw] whitespace-nowrap" from="4%" to="-14%">Premium Bristles</ScrollText>
+          <ScrollText className="text-[13vw] whitespace-nowrap text-green italic" from="-10%" to="10%"><span className="pl-[14vw]">Delivered Globally</span></ScrollText>
+        </div>
+        <div className="mx-auto max-w-7xl px-5 md:px-6">
           <p className="mt-4 max-w-xl text-lg text-muted-foreground md:ml-auto md:text-right">High-quality pig hair and boar bristles, crafted with precision and shipped worldwide.</p>
         </div>
       </section>
@@ -117,14 +101,14 @@ export default function Home() {
             </div>
           </div>
           <Reveal className="lg:col-span-6 lg:col-start-7">
-            <dl className="border-y-2 border-foreground">
+            <Stagger as="dl" className="border-y-2 border-foreground">
               {BANK.map(([k, v]) => (
-                <div key={k} className="grid gap-1 border-b py-3.5 last:border-b-0 sm:grid-cols-[10rem_1fr] sm:gap-4">
+                <StaggerItem key={k} className="grid gap-1 border-b py-3.5 last:border-b-0 sm:grid-cols-[10rem_1fr] sm:gap-4">
                   <dt className="text-sm text-muted-foreground">{k}</dt>
                   <dd className="font-serif text-xl break-words">{v}</dd>
-                </div>
+                </StaggerItem>
               ))}
-            </dl>
+            </Stagger>
           </Reveal>
         </div>
       </section>

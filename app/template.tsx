@@ -1,16 +1,26 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { MotionConfig, motion } from "framer-motion";
 
-// Templates remount on navigation, so this plays on every page change.
+// Templates remount on navigation: a curtain lifts and the page settles in.
 export default function Template({ children }: { children: React.ReactNode }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 14 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <MotionConfig reducedMotion="user">
+      <motion.div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 z-40 origin-top bg-saffron"
+        initial={{ scaleY: 1 }}
+        animate={{ scaleY: 0 }}
+        transition={{ duration: 0.75, ease: [0.76, 0, 0.24, 1] }}
+      />
+      <motion.div
+        className="pointer-events-none fixed inset-0 z-40 origin-top bg-brand"
+        aria-hidden
+        initial={{ scaleY: 1 }}
+        animate={{ scaleY: 0 }}
+        transition={{ duration: 0.75, delay: 0.1, ease: [0.76, 0, 0.24, 1] }}
+      />
       {children}
-    </motion.div>
+    </MotionConfig>
   );
 }

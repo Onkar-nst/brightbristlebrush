@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AnimatedHeading } from "./AnimatedHeading";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { COMPANY, EMAIL, LOCATIONS, NAV_LINKS, PHONES, PRODUCTS, telHref } from "@/lib/site";
 
@@ -20,7 +21,7 @@ export function Footer() {
             <h2 className={heading}>Company</h2>
             <ul className="mt-5 space-y-3 text-sm text-white/60">
               {NAV_LINKS.map(({ label, href }) => (
-                <li key={href}><Link href={href} className="transition-colors hover:text-white">{label}</Link></li>
+                <li key={href}><Link href={href} className="inline-block transition-all duration-300 hover:translate-x-1.5 hover:text-white">{label}</Link></li>
               ))}
             </ul>
           </div>
@@ -41,6 +42,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
+        <AnimatedHeading text="Global reach, local touch." className="mt-10 text-[9.5vw] leading-none text-saffron italic lg:text-[7.5rem]" />
         <div className="mt-8 flex flex-col justify-between gap-3 border-t border-white/15 pt-6 text-xs text-white/60 md:flex-row">
           <span>© {new Date().getFullYear()} {COMPANY}. All rights reserved.</span>
           <span>Designed by <a href="https://www.brandedsystem.com/" className="underline underline-offset-2 hover:text-white">Branded System</a></span>

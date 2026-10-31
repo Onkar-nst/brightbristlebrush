@@ -25,7 +25,7 @@ export function Certificates() {
             <button
               onClick={() => setActive(c)}
               aria-label={`View ${c.title}`}
-              className="group block w-full text-left"
+              className="group block w-full text-left transition-transform duration-500 ease-out odd:hover:-rotate-1 even:hover:rotate-1 hover:-translate-y-2 hover:rotate-1"
             >
               <span className="relative block aspect-[732/1024] overflow-hidden border bg-white">
                 <Image src={c.src} alt={c.title} fill sizes="(min-width: 1024px) 25vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />

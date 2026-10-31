@@ -28,8 +28,8 @@ export function ContactForm() {
       </div>
       <div><label htmlFor="email" className={label}>Email Address</label><input id="email" name="email" type="email" required autoComplete="email" className={input} /></div>
       <div><label htmlFor="message" className={label}>Message</label><textarea id="message" name="message" rows={4} required className={`${input} resize-none`} /></div>
-      <button type="submit" className="inline-flex w-full items-center justify-center gap-2 bg-brand py-4 text-sm font-semibold text-brand-foreground transition-colors hover:bg-green">
-        Send Enquiry
+      <button type="submit" className="group relative inline-flex w-full items-center justify-center overflow-hidden bg-brand py-4 text-sm font-semibold text-brand-foreground">
+        <span className="absolute inset-0 origin-left scale-x-0 bg-green transition-transform duration-500 ease-out group-hover:scale-x-100" /><span className="relative">Send Enquiry</span>
       </button>
       <p className="text-sm text-muted-foreground" aria-live="polite">
         {sent ? `Your email app should now be open. If it isn't, write to ${EMAIL}.` : "Opens your email app with this message ready to send."}

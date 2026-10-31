@@ -33,7 +33,8 @@ export function Nav() {
             const active = pathname === href;
             return (
               <Link key={href} href={href} aria-current={active ? "page" : undefined} className="relative px-4 py-2 text-[15px]">
-                                <span className={`relative transition-colors ${active ? "text-white underline decoration-saffron decoration-2 underline-offset-8" : "text-white/75 hover:text-white"}`}>{label}</span>
+                                <span className={`relative transition-colors ${active ? "text-white" : "text-white/75 hover:text-white"}`}>{label}</span>
+                {active && <motion.span layoutId="nav-mark" className="absolute inset-x-4 bottom-0.5 h-0.5 bg-saffron" transition={{ type: "spring", stiffness: 380, damping: 32 }} />}
               </Link>
             );
           })}

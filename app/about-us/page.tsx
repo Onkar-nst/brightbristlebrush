@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AnimatedHeading } from "@/components/AnimatedHeading";
+import { Stagger, StaggerItem } from "@/components/Motion";
 import { PageHero } from "@/components/PageHero";
 import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
@@ -25,7 +26,7 @@ export default function AboutPage() {
 
       <section className="bg-brand">
         <div className="mx-auto max-w-5xl">
-          <div className="relative aspect-video">
+          <Reveal direction="scale" className="relative aspect-video">
             <iframe
               src="https://www.youtube-nocookie.com/embed/U3W2Mj1fMCE?rel=0"
               title="Bright Brush and Bristle Works India video"
@@ -35,7 +36,7 @@ export default function AboutPage() {
               allowFullScreen
               className="absolute inset-0 h-full w-full"
               />
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -61,12 +62,14 @@ export default function AboutPage() {
       <section className="bg-surface py-12 md:py-17">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
           <AnimatedHeading text="Overview of Our Services" className="border-b border-foreground pb-4 text-4xl md:text-6xl" />
+          <Stagger>
           {SERVICES.map((s) => (
-            <div key={s.title} className="grid gap-2 border-b py-6 md:grid-cols-12 md:gap-6">
+            <StaggerItem key={s.title} className="grid gap-2 border-b py-6 transition-colors duration-300 hover:bg-background/60 md:grid-cols-12 md:gap-6">
               <h3 className="font-serif text-2xl md:col-span-4 md:text-3xl">{s.title}</h3>
               <p className="leading-relaxed text-muted-foreground md:col-span-7 md:col-start-6">{s.body}</p>
-            </div>
+            </StaggerItem>
           ))}
+          </Stagger>
         </div>
       </section>
 
