@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { AnimatedHeading } from "@/components/AnimatedHeading";
 import { ContactForm } from "@/components/ContactForm";
-import { Rule, Stagger, StaggerItem } from "@/components/Motion";
+import { Eyebrow } from "@/components/Eyebrow";
+import { Stagger, StaggerItem } from "@/components/Motion";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { SectionHead } from "@/components/SectionHead";
 import { EMAIL, HOURS, LOCATIONS, PHONES, telHref } from "@/lib/site";
 
 export const metadata: Metadata = { title: "Contact Us" };
@@ -11,39 +14,43 @@ export const metadata: Metadata = { title: "Contact Us" };
 export default function ContactPage() {
   return (
     <>
-      <PageHero title="Contact Us" subtitle="Call Us or Fill the Form" />
+      <PageHero label="Get in touch" title="Contact Us" subtitle="Call Us or Fill the Form" image="/images/inspection.jpg" />
 
-      <section className="pb-12 md:pb-17">
-        <div className="mx-auto mb-8 max-w-7xl px-5 md:px-6"><Rule /></div>
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 md:px-6 lg:grid-cols-12 lg:gap-6">
-          <div className="lg:col-span-6">
-            <AnimatedHeading text="Don’t hesitate to contact us" className="text-4xl leading-[1.08] md:text-[3.25rem]" />
-            <div className="mt-6 flex flex-col gap-1 font-serif text-3xl">
-              {PHONES.map((p) => <a key={p} href={telHref(p)} className="w-fit hover:text-green">{p}</a>)}
+      <section className="py-12 md:py-17">
+        <div className="mx-auto max-w-7xl px-5 md:px-6">
+          <Reveal>
+            <div className="grid gap-10 rounded-3xl border bg-surface p-7 md:p-12 lg:grid-cols-2 lg:gap-16">
+              <div>
+                <Eyebrow className="mb-5">Connect</Eyebrow>
+                <AnimatedHeading lines={["Don’t hesitate", "to contact us"]} />
+                <ul className="mt-7 space-y-4">
+                  <li className="flex gap-3"><Phone size={18} className="mt-0.5 shrink-0 text-brand" /><span className="flex flex-col gap-1 font-medium">{PHONES.map((p) => <a key={p} href={telHref(p)} className="w-fit hover:text-brand">{p}</a>)}</span></li>
+                  <li className="flex gap-3"><Mail size={18} className="mt-0.5 shrink-0 text-brand" /><a href={`mailto:${EMAIL}`} className="font-medium break-all hover:text-brand">{EMAIL}</a></li>
+                  <li className="flex gap-3"><Clock size={18} className="mt-0.5 shrink-0 text-brand" /><span><span className="font-medium">Working Time</span><br /><span className="text-muted-foreground">{HOURS.join(" / ")}</span></span></li>
+                </ul>
+              </div>
+              <ContactForm />
             </div>
-            <a href={`mailto:${EMAIL}`} className="mt-5 block font-semibold break-all underline decoration-saffron decoration-2 underline-offset-4">{EMAIL}</a>
-            <p className="mt-5 text-muted-foreground">Working Time<br />{HOURS.join(". ")}.</p>
-          </div>
-          <Reveal className="lg:col-span-5 lg:col-start-8"><ContactForm /></Reveal>
+          </Reveal>
         </div>
       </section>
 
-      <section className="bg-surface py-12 md:py-17">
+      <section className="pb-12 md:pb-17">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
-          <AnimatedHeading text="Locations" className="border-b border-foreground pb-4 text-4xl md:text-6xl" />
-          <Stagger>
-          {LOCATIONS.map((l) => (
-            <StaggerItem key={l.title} className="grid gap-2 border-b py-6 md:grid-cols-12 md:gap-6">
-              <h3 className="font-serif text-2xl md:col-span-4">{l.title}</h3>
-              <p className="leading-relaxed md:col-span-4">{l.address}</p>
-              {l.phone && (
-                <p className="flex flex-col gap-1 text-[15px] font-semibold md:col-span-4">
-                  <a href={telHref(l.phone)} className="w-fit hover:text-green">{l.phone}</a>
-                  <a href={`mailto:${l.email}`} className="w-fit break-all hover:text-green">{l.email}</a>
-                </p>
-              )}
-            </StaggerItem>
-          ))}
+          <SectionHead label="Locations" lines={["Our units", "and offices"]} />
+          <Stagger className="mt-8 grid gap-5 md:grid-cols-2">
+            {LOCATIONS.map((l) => (
+              <StaggerItem key={l.title} className="hover-lift rounded-2xl border bg-surface p-6 hover:border-brand/40">
+                <h3 className="flex items-center gap-2 font-mono text-xs font-bold tracking-[0.1em] text-brand uppercase"><MapPin size={15} />{l.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{l.address}</p>
+                {l.phone && (
+                  <p className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-sm font-medium">
+                    <a href={telHref(l.phone)} className="hover:text-brand">{l.phone}</a>
+                    <a href={`mailto:${l.email}`} className="break-all hover:text-brand">{l.email}</a>
+                  </p>
+                )}
+              </StaggerItem>
+            ))}
           </Stagger>
         </div>
       </section>

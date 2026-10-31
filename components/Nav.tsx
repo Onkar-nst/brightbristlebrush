@@ -44,7 +44,7 @@ export function Nav() {
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="flex h-11 w-11 items-center justify-center border border-white/30 md:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/30 md:hidden"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -65,7 +65,7 @@ export function Nav() {
                   <Link
                     href={href}
                     onClick={() => setOpen(false)}
-                    className={`block border-b border-white/10 py-4 font-serif text-4xl ${pathname === href ? "text-saffron" : ""}`}
+                    className={`block border-b border-white/10 py-4 text-3xl font-medium tracking-tight ${pathname === href ? "text-saffron" : ""}`}
                   >
                     {label}
                   </Link>

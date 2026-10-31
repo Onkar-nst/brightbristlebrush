@@ -25,15 +25,15 @@ export function Certificates() {
             <button
               onClick={() => setActive(c)}
               aria-label={`View ${c.title}`}
-              className="group block w-full text-left transition-transform duration-500 ease-out odd:hover:-rotate-1 even:hover:rotate-1 hover:-translate-y-2 hover:rotate-1"
+              className="group hover-lift block w-full overflow-hidden rounded-2xl border bg-surface p-3 text-left"
             >
-              <span className="relative block aspect-[732/1024] overflow-hidden border bg-white">
+              <span className="relative block aspect-[732/1024] overflow-hidden rounded-xl bg-white">
                 <Image src={c.src} alt={c.title} fill sizes="(min-width: 1024px) 25vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
                 <span className="absolute inset-0 flex items-center justify-center bg-brand/0 text-white opacity-0 transition-all group-hover:bg-brand/50 group-hover:opacity-100">
                   <ZoomIn size={28} />
                 </span>
               </span>
-              <span className="mt-3 block font-serif text-lg">{c.title}</span>
+              <span className="mt-3 block text-sm font-semibold">{c.title}</span>
             </button>
           </Reveal>
         ))}
@@ -51,7 +51,7 @@ export function Certificates() {
             onClick={() => setActive(null)}
             className="fixed inset-0 z-[70] flex items-center justify-center bg-brand/90 p-5 backdrop-blur"
           >
-            <button autoFocus aria-label="Close" className="absolute top-4 right-4 flex h-11 w-11 items-center justify-center bg-white/10 text-white">
+            <button autoFocus aria-label="Close" className="absolute top-4 right-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white">
               <X size={20} />
             </button>
             <motion.div initial={{ scale: 0.92, y: 16 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.96 }} className="relative aspect-[732/1024] h-[85dvh] max-w-full" onClick={(e) => e.stopPropagation()}>

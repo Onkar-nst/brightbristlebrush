@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform, useVelocity, useAnimationFrame, useInView, animate } from "framer-motion";
+import { animate, motion, useInView, useMotionValue, useReducedMotion, useScroll, useSpring } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
@@ -60,51 +60,6 @@ export function CountUp({ to, format = (n) => String(n) }: { to: number; format?
   }, [inView, reduced, to]);
 
   return <span ref={ref}>{format(value)}</span>;
-}
-
-// Endless strip that speeds up, and reverses, with the visitor's scrolling.
-export function Marquee({ items, className = "", speed = 2.5 }: { items: string[]; className?: string; speed?: number }) {
-  const reduced = useReducedMotion();
-  const x = useMotionValue(0);
-  const { scrollY } = useScroll();
-  const velocity = useSpring(useVelocity(scrollY), { damping: 50, stiffness: 400 });
-  const boost = useTransform(velocity, [-1000, 0, 1000], [-4, 0, 4], { clamp: false });
-  const direction = useRef(1);
-
-  useAnimationFrame((_, delta) => {
-    if (reduced) return;
-    const b = boost.get();
-    if (b < -0.05) direction.current = -1;
-    else if (b > 0.05) direction.current = 1;
-    const next = x.get() - direction.current * speed * (delta / 1000) * (1 + Math.abs(b));
-    x.set(((next % 50) - 50) % 50);
-  });
-  const left = useTransform(x, (v) => `${v}%`);
-
-  return (
-    <div aria-hidden className={`overflow-hidden whitespace-nowrap ${className}`}>
-      <motion.div className="flex w-max" style={{ x: left }}>
-        {Array.from({ length: 8 }, () => items).flat().map((t, i) => (
-          <span key={i} className="flex items-center">
-            {t}<span className="mx-6 text-saffron md:mx-9">✦</span>
-          </span>
-        ))}
-      </motion.div>
-    </div>
-  );
-}
-
-// Oversized line that slides sideways as the page scrolls past it.
-export function ScrollText({ children, className = "", from = "8%", to = "-12%" }: { children: ReactNode; className?: string; from?: string; to?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const reduced = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const x = useTransform(scrollYProgress, [0, 1], [from, to]);
-  return (
-    <div ref={ref} className="overflow-hidden">
-      <motion.div className={className} style={{ x: reduced ? 0 : x }}>{children}</motion.div>
-    </div>
-  );
 }
 
 // Link that leans toward the cursor and floods with colour on hover.

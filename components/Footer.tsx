@@ -1,14 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatedHeading } from "./AnimatedHeading";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { COMPANY, EMAIL, LOCATIONS, NAV_LINKS, PHONES, PRODUCTS, telHref } from "@/lib/site";
 
-const heading = "font-serif text-lg text-white";
+const heading = "font-mono text-[11px] font-bold tracking-[0.14em] text-white/90 uppercase";
 
 export function Footer() {
   return (
-    <footer className="bg-brand text-white">
+    <footer className="bg-black text-white">
       <div className="mx-auto max-w-7xl px-5 py-9 md:px-6">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4 lg:pr-8">
@@ -42,7 +41,6 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <AnimatedHeading text="Global reach, local touch." className="mt-10 text-[9.5vw] leading-none text-saffron italic lg:text-[7.5rem]" />
         <div className="mt-8 flex flex-col justify-between gap-3 border-t border-white/15 pt-6 text-xs text-white/60 md:flex-row">
           <span>© {new Date().getFullYear()} {COMPANY}. All rights reserved.</span>
           <span>Designed by <a href="https://www.brandedsystem.com/" className="underline underline-offset-2 hover:text-white">Branded System</a></span>
