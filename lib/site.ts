@@ -1,8 +1,3 @@
-import {
-  BadgeCheck, Factory, Globe2, Headphones, Medal, PackageOpen, Plane, Video, Waypoints,
-  type LucideIcon,
-} from "lucide-react";
-
 export const COMPANY = "Bright Brush and Bristle Works India";
 
 export const NAV_LINKS = [
@@ -19,16 +14,16 @@ export const HOURS = ["Mon-Sat: 9:00 - 19:00", "Closed on Sunday"];
 
 export const telHref = (phone: string) => `tel:${phone.replace(/-/g, "")}`;
 
-export const FEATURES: { icon: LucideIcon; title: string; body: string }[] = [
-  { icon: Factory, title: "Manufacturing", body: "We are certified manufacturers of pig bristles and boar bristles, employing highly trained workers to ensure the highest quality products." },
-  { icon: BadgeCheck, title: "EU & UK Authorisation", body: "First Manufacturing Unit to receive the authorisation to export Pig Hair/Boar Bristles for EU and Great Britain." },
-  { icon: Waypoints, title: "Sales & Export", body: "Our products are sold and exported to national and international markets, ensuring global reach with consistent service." },
-  { icon: Globe2, title: "Market", body: "We operate in Europe, Asia, Australia, and North America, with Europe and Asia serving as our dominant markets." },
-  { icon: Video, title: "Live Factory Tour", body: "Customers can take a live virtual tour of our production facilities through Google Meeting or Skype, available Mon to Sat, 7 AM to 5 PM (IST)." },
-  { icon: Headphones, title: "Support", body: "We offer comprehensive pre-sale and after-sale support, setting us apart by ensuring customer satisfaction throughout every transaction." },
-  { icon: Medal, title: "Gold Member", body: "We are honored to be a part of brushexpert.com, a renowned platform in the United Kingdom." },
-  { icon: PackageOpen, title: "Free Samples", body: "We provide free product samples for buyers to ensure satisfaction and confidence in our offerings." },
-  { icon: Plane, title: "DHL", body: "We maintain a dedicated account with DHL for reliable and efficient product deliveries worldwide." },
+export const FEATURES: { title: string; body: string }[] = [
+  { title: "Manufacturing", body: "We are certified manufacturers of pig bristles and boar bristles, employing highly trained workers to ensure the highest quality products." },
+  { title: "EU & UK Authorisation", body: "First Manufacturing Unit to receive the authorisation to export Pig Hair/Boar Bristles for EU and Great Britain." },
+  { title: "Sales & Export", body: "Our products are sold and exported to national and international markets, ensuring global reach with consistent service." },
+  { title: "Market", body: "We operate in Europe, Asia, Australia, and North America, with Europe and Asia serving as our dominant markets." },
+  { title: "Live Factory Tour", body: "Customers can take a live virtual tour of our production facilities through Google Meeting or Skype, available Mon to Sat, 7 AM to 5 PM (IST)." },
+  { title: "Support", body: "We offer comprehensive pre-sale and after-sale support, setting us apart by ensuring customer satisfaction throughout every transaction." },
+  { title: "Gold Member", body: "We are honored to be a part of brushexpert.com, a renowned platform in the United Kingdom." },
+  { title: "Free Samples", body: "We provide free product samples for buyers to ensure satisfaction and confidence in our offerings." },
+  { title: "DHL", body: "We maintain a dedicated account with DHL for reliable and efficient product deliveries worldwide." },
 ];
 
 export const FACTORY_PREMISES =

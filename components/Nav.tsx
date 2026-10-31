@@ -32,15 +32,8 @@ export function Nav() {
           {NAV_LINKS.map(({ label, href }) => {
             const active = pathname === href;
             return (
-              <Link key={href} href={href} aria-current={active ? "page" : undefined} className="relative rounded-full px-4 py-2 text-sm">
-                {active && (
-                  <motion.span
-                    layoutId="nav-pill"
-                    className="absolute inset-0 rounded-full bg-white/12"
-                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                  />
-                )}
-                <span className={`relative transition-colors ${active ? "text-white" : "text-white/75 hover:text-white"}`}>{label}</span>
+              <Link key={href} href={href} aria-current={active ? "page" : undefined} className="relative px-4 py-2 text-[15px]">
+                                <span className={`relative transition-colors ${active ? "text-white underline decoration-saffron decoration-2 underline-offset-8" : "text-white/75 hover:text-white"}`}>{label}</span>
               </Link>
             );
           })}
@@ -50,7 +43,7 @@ export function Nav() {
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 md:hidden"
+          className="flex h-11 w-11 items-center justify-center border border-white/30 md:hidden"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -71,7 +64,7 @@ export function Nav() {
                   <Link
                     href={href}
                     onClick={() => setOpen(false)}
-                    className={`block border-b border-white/10 py-4 text-3xl font-medium tracking-tight ${pathname === href ? "text-saffron" : ""}`}
+                    className={`block border-b border-white/10 py-4 font-serif text-4xl ${pathname === href ? "text-saffron" : ""}`}
                   >
                     {label}
                   </Link>

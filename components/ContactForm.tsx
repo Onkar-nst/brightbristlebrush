@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Send } from "lucide-react";
 import { EMAIL } from "@/lib/site";
 
-const input = "w-full rounded-xl border bg-background px-4 py-3 text-base outline-none transition-all focus:border-green focus:ring-1 focus:ring-green";
-const label = "mb-2 block text-xs font-semibold tracking-wider uppercase";
+const input = "w-full border-0 border-b border-foreground/40 bg-transparent px-0 py-2.5 text-base outline-none transition-colors focus:border-foreground";
+const label = "block text-sm text-muted-foreground";
 
 // The site has no backend, so the form hands off to the visitor's mail app.
 export function ContactForm() {
@@ -29,10 +28,10 @@ export function ContactForm() {
       </div>
       <div><label htmlFor="email" className={label}>Email Address</label><input id="email" name="email" type="email" required autoComplete="email" className={input} /></div>
       <div><label htmlFor="message" className={label}>Message</label><textarea id="message" name="message" rows={4} required className={`${input} resize-none`} /></div>
-      <button type="submit" className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand py-3.5 text-sm font-semibold text-brand-foreground transition-transform hover:scale-[1.02] active:scale-95">
-        <Send size={15} /> Send Enquiry
+      <button type="submit" className="inline-flex w-full items-center justify-center gap-2 bg-brand py-4 text-sm font-semibold text-brand-foreground transition-colors hover:bg-green">
+        Send Enquiry
       </button>
-      <p className="text-center text-xs text-muted-foreground" aria-live="polite">
+      <p className="text-sm text-muted-foreground" aria-live="polite">
         {sent ? `Your email app should now be open. If it isn't, write to ${EMAIL}.` : "Opens your email app with this message ready to send."}
       </p>
     </form>

@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Instrument_Sans, Newsreader } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { ScrollProgress } from "@/components/ScrollProgress";
 import "./globals.css";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const sans = Instrument_Sans({ variable: "--font-geist-sans", subsets: ["latin"] });
+const newsreader = Newsreader({ variable: "--font-newsreader", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://brightbristlebrush.com"),
@@ -20,9 +19,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${sans.variable} ${newsreader.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
-        <ScrollProgress />
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

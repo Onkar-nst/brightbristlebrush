@@ -9,7 +9,7 @@ export const metadata: Metadata = { title: "Legal" };
 export default function LegalPage() {
   return (
     <>
-      <PageHero eyebrow="Compliance" title="Legal" />
+      <PageHero title="Legal" />
       <section className="py-12 md:py-17">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
           <div className="grid gap-10 lg:grid-cols-12">

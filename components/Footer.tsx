@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { COMPANY, EMAIL, LOCATIONS, NAV_LINKS, PHONES, PRODUCTS, telHref } from "@/lib/site";
 
-const heading = "font-mono-label font-bold text-white/90";
+const heading = "font-serif text-lg text-white";
 
 export function Footer() {
   return (
@@ -41,7 +41,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-8 flex flex-col justify-between gap-3 border-t border-white/15 pt-6 text-xs text-white/50 md:flex-row">
+        <div className="mt-8 flex flex-col justify-between gap-3 border-t border-white/15 pt-6 text-xs text-white/60 md:flex-row">
           <span>© {new Date().getFullYear()} {COMPANY}. All rights reserved.</span>
           <span>Designed by <a href="https://www.brandedsystem.com/" className="underline underline-offset-2 hover:text-white">Branded System</a></span>
         </div>
