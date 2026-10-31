@@ -72,7 +72,7 @@ export default function Home() {
 
       <section className="py-12 md:py-17">
         <div className="mx-auto grid max-w-7xl gap-10 px-5 md:px-6 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+          <div className="lg:sticky lg:top-24 lg:col-span-5 lg:self-start">
             <Eyebrow>Welcome</Eyebrow>
             <AnimatedHeading text="Welcome to Bright Brush and Bristles Work India" className="mt-6 text-4xl leading-[1.08] md:text-5xl" />
           </div>

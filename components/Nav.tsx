@@ -10,15 +10,7 @@ import { COMPANY, NAV_LINKS } from "@/lib/site";
 
 export function Nav() {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -29,13 +21,11 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 text-white transition-colors duration-300 ${
-        scrolled || open ? "bg-brand/95 backdrop-blur" : "bg-transparent"
-      }`}
+      className="fixed inset-x-0 top-0 z-50 bg-black text-white"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 md:px-6">
         <Link href="/" onClick={() => setOpen(false)} aria-label={`${COMPANY} home`}>
-          <Image src="/images/logo-white.png" alt="" width={768} height={224} priority className="h-10 w-auto md:h-12" />
+          <Image src="/images/logo-white.png" alt="" width={768} height={224} priority className="h-14 w-auto md:h-16" />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
