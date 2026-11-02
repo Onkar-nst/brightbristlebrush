@@ -21,7 +21,7 @@ export function AnimatedHeading({ lines, as = "h2", light = false, className = "
       className={`leading-[1.12] font-semibold tracking-[-0.03em] ${className}`}
     >
       {lines.map((line, l) => (
-        <span key={l} aria-hidden className={`block ${l === 0 && lines.length > 1 ? (light ? "text-white/75" : "text-green") : light ? "text-white" : "text-foreground"}`}>
+        <span key={l} aria-hidden className={`block ${l === 0 && lines.length > 1 ? (light ? "text-white/75" : "text-bronze") : light ? "text-white" : "text-foreground"}`}>
           {line.split(" ").map((word, i) => (
             <span key={i} className="-mx-[0.06em] -my-[0.16em] mr-[0.18em] inline-block overflow-hidden px-[0.06em] py-[0.16em] align-bottom">
               <motion.span className="inline-block origin-bottom-left" variants={rise}>{word}</motion.span>

@@ -33,8 +33,8 @@ export function HomeHero() {
           We specialize in manufacturing and exporting high-quality pig hair products, including boar bristle and hog hair, as a dedicated and focused supplier of these items.
         </motion.p>
         <motion.div variants={item} className="mt-8 flex flex-wrap gap-3">
-          <MagneticLink href="/products/" className="rounded-full bg-white text-brand">Products</MagneticLink>
-          <MagneticLink href="/contact-us/" className="rounded-full border border-white/40 text-white">Contact Us</MagneticLink>
+          <MagneticLink href="/products/" className="bg-white text-brand">Products</MagneticLink>
+          <MagneticLink href="/contact-us/" className="border border-white/40 text-white">Contact Us</MagneticLink>
         </motion.div>
       </motion.div>
 

@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { COMPANY, NAV_LINKS } from "@/lib/site";
+import { Flags } from "./Flags";
 
 export function Nav() {
   const pathname = usePathname();
@@ -23,16 +24,16 @@ export function Nav() {
     <header
       className="fixed inset-x-0 top-0 z-50 bg-black text-white"
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 md:px-6">
+      <div className="mx-auto grid max-w-7xl grid-cols-[1fr_auto] items-center gap-4 px-5 py-3 md:grid-cols-[1fr_auto_1fr] md:px-6">
         <Link href="/" onClick={() => setOpen(false)} aria-label={`${COMPANY} home`}>
           <Image src="/images/logo-white.png" alt="" width={768} height={224} priority className="h-14 w-auto md:h-16" />
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center justify-center gap-0.5 md:flex">
           {NAV_LINKS.map(({ label, href }) => {
-            const active = pathname === href;
+            const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
             return (
-              <Link key={href} href={href} aria-current={active ? "page" : undefined} className="relative px-4 py-2 text-[15px]">
+              <Link key={href} href={href} aria-current={active ? "page" : undefined} className="relative px-3 py-2 text-[15px] lg:px-4">
                                 <span className={`relative transition-colors ${active ? "text-white" : "text-white/75 hover:text-white"}`}>{label}</span>
                 {active && <motion.span layoutId="nav-mark" className="absolute inset-x-4 bottom-0.5 h-0.5 bg-saffron" transition={{ type: "spring", stiffness: 380, damping: 32 }} />}
               </Link>
@@ -40,11 +41,16 @@ export function Nav() {
           })}
         </nav>
 
+        <Flags className="hidden w-full max-w-64 justify-self-end lg:block" />
+
+
+
+
         <button
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/30 md:hidden"
+          className="flex h-11 w-11 items-center justify-center justify-self-end border border-white/30 md:hidden"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -65,12 +71,14 @@ export function Nav() {
                   <Link
                     href={href}
                     onClick={() => setOpen(false)}
-                    className={`block border-b border-white/10 py-4 text-3xl font-medium tracking-tight ${pathname === href ? "text-saffron" : ""}`}
+                    className={`block border-b border-white/10 py-4 text-3xl font-medium tracking-tight ${(href === "/" ? pathname === "/" : pathname.startsWith(href)) ? "text-saffron" : ""}`}
                   >
                     {label}
                   </Link>
                 </motion.div>
               ))}
+              <p className="mt-8 text-xs tracking-[0.14em] text-white/50 uppercase">Countries currently serving</p>
+              <Flags className="mt-3" />
             </div>
           </motion.nav>
         )}

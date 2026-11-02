@@ -19,7 +19,7 @@ export default function AboutPage() {
       <section className="py-12 md:py-17">
         <div className="mx-auto grid max-w-7xl items-center gap-8 px-5 md:px-6 lg:grid-cols-[420px_1fr] lg:gap-12">
           <Reveal>
-            <Photo src="/images/factory.jpeg" alt="Bright Brush and Bristle Works India industry" ratio="aspect-square" sizes="(min-width: 1024px) 420px, 100vw" className="rounded-3xl border shadow-xl" />
+            <Photo src="/images/factory.jpeg" alt="Bright Brush and Bristle Works India industry" ratio="aspect-square" sizes="(min-width: 1024px) 420px, 100vw" className="border shadow-xl" />
           </Reveal>
           <Reveal direction="left">
             <Eyebrow className="mb-5">About Us</Eyebrow>
@@ -34,8 +34,8 @@ export default function AboutPage() {
       </section>
 
       <section className="pb-12 md:pb-17">
-        <div className="mx-auto max-w-5xl px-5 md:px-6">
-          <Reveal direction="scale" className="relative aspect-video overflow-hidden rounded-3xl border bg-black shadow-xl">
+        <div className="mx-auto max-w-7xl px-5 md:px-6">
+          <Reveal direction="scale" className="relative aspect-video md:aspect-auto md:h-[549px] overflow-hidden border bg-black shadow-xl">
             <iframe
               src="https://www.youtube-nocookie.com/embed/U3W2Mj1fMCE?rel=0"
               title="Bright Brush and Bristle Works India video"
@@ -52,7 +52,7 @@ export default function AboutPage() {
       <section className="pb-12 md:pb-17">
         <div className="mx-auto grid max-w-7xl gap-6 px-5 md:px-6 lg:grid-cols-2">
           <Reveal direction="right" className="h-full">
-            <div className="hover-lift h-full rounded-3xl border bg-surface p-7 md:p-10">
+            <div className="hover-lift h-full border bg-surface p-7 md:p-10">
               <Eyebrow className="mb-5">Compliance</Eyebrow>
               <AnimatedHeading lines={["EU Compliance and", "Export Authorization"]} className="text-[clamp(1.5rem,2.4vw,2rem)]" />
               <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-muted-foreground">
@@ -62,7 +62,7 @@ export default function AboutPage() {
             </div>
           </Reveal>
           <Reveal direction="left" delay={120} className="h-full">
-            <div className="hover-lift h-full rounded-3xl bg-brand p-7 text-white md:p-10">
+            <div className="hover-lift h-full bg-brand p-7 text-white md:p-10">
               <Eyebrow light className="mb-5">Purpose</Eyebrow>
               <AnimatedHeading light lines={["Our Mission", "& Vision"]} className="text-[clamp(1.5rem,2.4vw,2rem)]" />
               <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-white/80">
@@ -79,7 +79,7 @@ export default function AboutPage() {
           <SectionHead label="Services" lines={["Overview of", "Our Services"]} />
           <Stagger className="mt-8 grid gap-5 md:grid-cols-3">
             {SERVICES.map((s, i) => (
-              <StaggerItem key={s.title} className="hover-lift rounded-2xl border bg-surface p-6 hover:border-brand/40">
+              <StaggerItem key={s.title} className="hover-lift border bg-surface p-6 hover:border-brand/40">
                 <span className="font-mono text-[11px] font-bold tracking-[0.14em] text-brand">0{i + 1}</span>
                 <h3 className="mt-3 text-lg font-semibold tracking-[-0.02em]">{s.title}</h3>
                 <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
@@ -92,10 +92,10 @@ export default function AboutPage() {
       <section className="pb-12 md:pb-17">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
           <Reveal>
-            <div className="rounded-3xl bg-brand p-7 text-white md:p-12">
+            <div className="bg-brand p-7 text-white md:p-12">
               <AnimatedHeading light lines={["Office Contacts"]} />
-              <ul className="mt-6 grid gap-5 text-white/85 md:grid-cols-3">
-                <li className="flex gap-3"><MapPin size={18} className="mt-0.5 shrink-0" />{LOCATIONS[2].address}</li>
+              <ul className="mt-6 flex flex-col gap-5 text-white/85 md:flex-row md:gap-16">
+                <li className="flex max-w-sm gap-3"><MapPin size={18} className="mt-0.5 shrink-0" />{LOCATIONS[2].address}</li>
                 <li className="flex gap-3"><Phone size={18} className="mt-0.5 shrink-0" /><span className="flex flex-col gap-1">{PHONES.slice(0, 2).map((p) => <a key={p} href={telHref(p)} className="hover:text-white">{p}</a>)}</span></li>
                 <li className="flex gap-3"><Mail size={18} className="mt-0.5 shrink-0" /><a href={`mailto:${EMAIL}`} className="break-all hover:text-white">{EMAIL}</a></li>
               </ul>

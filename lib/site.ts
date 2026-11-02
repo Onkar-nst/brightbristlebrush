@@ -1,10 +1,12 @@
-import { BadgeCheck, Factory, Globe2, Headphones, Medal, PackageOpen, Plane, Video, Waypoints, type LucideIcon } from "lucide-react";
+import { BadgeCheck, Cog, Factory, Gem, Globe2, Headphones, Medal, Package, PackageOpen, Plane, Video, Waypoints, type LucideIcon } from "lucide-react";
+import { CATALOGUE } from "./catalogue";
 
 export const COMPANY = "Bright Brush and Bristle Works India";
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Products", href: "/products/" },
+  { label: "Processing", href: "/processing/" },
   { label: "Legal", href: "/legal/" },
   { label: "About Us", href: "/about-us/" },
   { label: "Contact Us", href: "/contact-us/" },
@@ -15,6 +17,13 @@ export const PHONES = ["+91-5561354044", "+91-9565914040", "+91-8858256451", "+9
 export const HOURS = ["Mon-Sat: 9:00 - 19:00", "Closed on Sunday"];
 
 export const telHref = (phone: string) => `tel:${phone.replace(/-/g, "")}`;
+
+export const HIGHLIGHTS: { icon: LucideIcon; title: string }[] = [
+  { icon: Gem, title: "Premium Quality Natural Bristles" },
+  { icon: Cog, title: "Consistent Grading and Processing" },
+  { icon: Package, title: "Export Ready Packaging" },
+  { icon: Globe2, title: "Trusted by Buyers Worldwide" },
+];
 
 export const FEATURES: { icon: LucideIcon; title: string; body: string }[] = [
   { icon: Factory, title: "Manufacturing", body: "We are certified manufacturers of pig bristles and boar bristles, employing highly trained workers to ensure the highest quality products." },
@@ -61,7 +70,7 @@ const GREY_SPECS: [string, string][] = [
   ["Packaging", "25 kg cartons"],
 ];
 
-export const PRODUCTS: Product[] = [
+const BASE_PRODUCTS: Product[] = [
   {
     name: "Calcutta Extra Stiff Boar Bristle",
     body: "Our high-quality pig bristles are sourced from India and offer exceptional durability, natural color, and extra stiffness. These bristles are ideal for a wide range of applications, including paintbrushes, floor brushes, scrub brushes, and industrial brushes. ISO 9001 certified and available in 25 kg cartons with company-marked wrappers, our premium pig hair is the perfect choice for demanding applications.",
@@ -90,6 +99,9 @@ export const PRODUCTS: Product[] = [
   },
   { name: "White/Grey/Black Natural Pig Hair", body: GREY_BODY, specs: GREY_SPECS, image: "/images/p-wgb.jpg" },
 ];
+
+export const PRODUCTS = BASE_PRODUCTS.map((p, i) => ({ ...p, ...CATALOGUE[i] }));
+export const productHref = (slug: string) => `/products/${slug}/`;
 
 export const SERVICES = [
   { title: "Bristle Manufacturing", body: "We produce premium pig bristle and hair for brush making, offering quality ranging from 70% to 90% tops. Customized cuts are available on request, with free samples provided." },

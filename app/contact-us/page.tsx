@@ -19,7 +19,7 @@ export default function ContactPage() {
       <section className="py-12 md:py-17">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
           <Reveal>
-            <div className="grid gap-10 rounded-3xl border bg-surface p-7 md:p-12 lg:grid-cols-2 lg:gap-16">
+            <div className="grid gap-10 border bg-surface p-7 md:p-12 lg:grid-cols-2 lg:gap-16">
               <div>
                 <Eyebrow className="mb-5">Connect</Eyebrow>
                 <AnimatedHeading lines={["Don’t hesitate", "to contact us"]} />
@@ -40,7 +40,7 @@ export default function ContactPage() {
           <SectionHead label="Locations" lines={["Our units", "and offices"]} />
           <Stagger className="mt-8 grid gap-5 md:grid-cols-2">
             {LOCATIONS.map((l) => (
-              <StaggerItem key={l.title} className="hover-lift rounded-2xl border bg-surface p-6 hover:border-brand/40">
+              <StaggerItem key={l.title} className="hover-lift border bg-surface p-6 hover:border-brand/40">
                 <h3 className="flex items-center gap-2 font-mono text-xs font-bold tracking-[0.1em] text-brand uppercase"><MapPin size={15} />{l.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{l.address}</p>
                 {l.phone && (

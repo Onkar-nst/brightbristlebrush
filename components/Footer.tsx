@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { COMPANY, EMAIL, LOCATIONS, NAV_LINKS, PHONES, PRODUCTS, telHref } from "@/lib/site";
+import { COMPANY, EMAIL, LOCATIONS, NAV_LINKS, PHONES, PRODUCTS, productHref, telHref } from "@/lib/site";
 
 const heading = "font-mono text-[11px] font-bold tracking-[0.14em] text-white/90 uppercase";
 
 export function Footer() {
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-black pb-16 text-white md:pb-0">
       <div className="mx-auto max-w-7xl px-5 py-9 md:px-6">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-4 lg:pr-8">
@@ -28,7 +28,7 @@ export function Footer() {
             <h2 className={heading}>Products</h2>
             <ul className="mt-5 space-y-3 text-sm text-white/60">
               {PRODUCTS.map((p) => (
-                <li key={p.name}><Link href="/products/" className="transition-colors hover:text-white">{p.name}</Link></li>
+                <li key={p.name}><Link href={productHref(p.slug)} className="transition-colors hover:text-white">{p.name}</Link></li>
               ))}
             </ul>
           </div>
