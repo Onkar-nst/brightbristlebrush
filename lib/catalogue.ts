@@ -145,15 +145,15 @@ export const COMPLIANCE = [
 ];
 
 export const COMPLIANCE_BADGES = [
-  { src: "/images/compliance/iso.jpg", label: "ISO 9001 Certified" },
-  { src: "/images/compliance/capexil.jpg", label: "CAPEXIL Registration" },
-  { src: "/images/compliance/quarantine.jpg", label: "Animal Quarantine & Certification Services (Veterinary / Health Certificate)" },
-  { src: "/images/compliance/eu.jpg", label: "European Union Export Authorization" },
-  { src: "/images/compliance/gb.jpg", label: "Great Britain Export Authorization" },
-  { src: "/images/compliance/usa.jpg", label: "USA" },
-  { src: "/images/compliance/wildlife.jpg", label: "Wildlife NOC Available for All Shipments" },
-  { src: "/images/compliance/pollution.jpg", label: "Pollution Control Board Compliance" },
-  { src: "/images/compliance/other.jpg", label: "Other Export Documentation" },
+  { src: "/images/compliance/iso.png", label: "ISO 9001 Certified" },
+  { src: "/images/compliance/capexil.png", label: "CAPEXIL Registration" },
+  { src: "/images/compliance/quarantine.png", label: "Animal Quarantine & Certification Services (Veterinary / Health Certificate)" },
+  { src: "/images/compliance/eu.png", label: "European Union Export Authorization" },
+  { src: "/images/compliance/gb.png", label: "Great Britain Export Authorization" },
+  { src: "/images/compliance/usa.png", label: "USA" },
+  { src: "/images/compliance/wildlife.png", label: "Wildlife NOC Available for All Shipments" },
+  { src: "/images/compliance/pollution.png", label: "Pollution Control Board Compliance" },
+  { src: "/images/compliance/other.png", label: "Other Export Documentation" },
 ];
 
 export const EU_VERIFY_STEPS = [

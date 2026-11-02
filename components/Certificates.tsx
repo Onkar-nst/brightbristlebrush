@@ -21,11 +21,11 @@ export function Certificates() {
     <>
       <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
         {CERTIFICATES.map((c, i) => (
-          <Reveal key={c.src} delay={i * 90} direction="scale">
+          <Reveal key={c.src} delay={i * 90} direction="scale" className="h-full">
             <button
               onClick={() => setActive(c)}
               aria-label={`View ${c.title}`}
-              className="group hover-lift block w-full overflow-hidden border bg-surface p-3 text-left"
+              className="group hover-lift flex h-full w-full flex-col overflow-hidden border bg-surface p-3 text-left"
             >
               <span className="relative block aspect-[732/1024] overflow-hidden bg-white">
                 <Image src={c.src} alt={c.title} fill sizes="(min-width: 1024px) 25vw, 50vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />

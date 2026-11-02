@@ -43,7 +43,7 @@ export function Footer() {
         </div>
         <div className="mt-8 flex flex-col justify-between gap-3 border-t border-white/15 pt-6 text-xs text-white/60 md:flex-row">
           <span>© {new Date().getFullYear()} {COMPANY}. All rights reserved.</span>
-          <span>Designed by <a href="https://www.brandedsystem.com/" className="underline underline-offset-2 hover:text-white">Branded System</a></span>
+          <span>Designed by <a href="https://kolacommunications.com/" className="underline underline-offset-2 hover:text-white">Kola Communications</a></span>
         </div>
       </div>
     </footer>

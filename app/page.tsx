@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { ArrowRight, BadgeCheck, Factory, Handshake, Landmark, Plane } from "lucide-react";
 import Link from "next/link";
 import { AnimatedHeading } from "@/components/AnimatedHeading";
@@ -9,6 +11,7 @@ import { CountUp, MagneticLink, Stagger, StaggerItem } from "@/components/Motion
 import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
 import { SectionHead } from "@/components/SectionHead";
+import { COMPLIANCE_BADGES } from "@/lib/catalogue";
 import { BANK, FACTORY_PREMISES, FEATURES, HIGHLIGHTS, TRANSPORT } from "@/lib/site";
 
 const WELCOME_POINTS = [
@@ -194,6 +197,19 @@ export default function Home() {
               </Stagger>
             </div>
           </Reveal>
+        </div>
+      </section>
+      <section aria-label="Certifications and export approvals" className="border-t bg-surface py-8 md:py-10">
+        <div className="marquee overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_6%,#000_94%,transparent)]">
+          <div className="marquee-track flex w-max items-center [--marquee-duration:40s]">
+            {[0, 1].map((copy) =>
+              COMPLIANCE_BADGES.map((b) => (
+                <div key={`${copy}-${b.src}`} aria-hidden={copy === 1 || undefined} className="relative h-28 w-28 shrink-0 border-r md:h-32 md:w-32">
+                  <Image src={b.src} alt={copy === 1 ? "" : b.label} fill sizes="128px" className="object-contain p-3" />
+                </div>
+              )),
+            )}
+          </div>
         </div>
       </section>
     </>

@@ -65,10 +65,10 @@ export function ExportCompliance() {
       <section className="bg-surface py-12 md:py-17">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
           <SectionHead label="Quality & Compliance" lines={["Fully Compliant for", "International Export Markets"]} />
-          <Stagger className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          <Stagger className="mt-10 grid grid-cols-2 border-t border-l sm:grid-cols-3 lg:grid-cols-5">
             {COMPLIANCE_BADGES.map((b) => (
-              <StaggerItem key={b.src} className="hover-lift relative aspect-square border bg-white">
-                <Image src={b.src} alt={b.label} fill sizes="(min-width: 1024px) 20vw, 50vw" className="object-contain p-3" />
+              <StaggerItem key={b.src} className="relative aspect-square border-r border-b">
+                <Image src={b.src} alt={b.label} fill sizes="(min-width: 1024px) 20vw, 50vw" className="object-contain p-4 transition-transform duration-300 hover:scale-105" />
               </StaggerItem>
             ))}
           </Stagger>

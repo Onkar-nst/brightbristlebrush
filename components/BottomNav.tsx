@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Info, Layers, Mail, Scale } from "lucide-react";
+import { Info, Layers, Mail, Workflow } from "lucide-react";
 import { COMPANY } from "@/lib/site";
 
 const LEFT = [
@@ -12,7 +12,7 @@ const LEFT = [
 ];
 const RIGHT = [
   { label: "Contact", href: "/contact-us/", icon: Mail },
-  { label: "Legal", href: "/legal/", icon: Scale },
+  { label: "Processing", href: "/processing/", icon: Workflow },
 ];
 
 // Phone-only tab bar: two links each side of the logo mark, which goes home.
