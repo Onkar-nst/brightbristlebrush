@@ -81,9 +81,9 @@ export default function ProcessingPage() {
           <SectionHead label="Documents" lines={["Accompanying", "Shipment Documents"]} note={PROCESSING.note} />
           <Stagger className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {PROCESSING.documents.map((d) => (
-              <StaggerItem key={d} className="group hover-lift border bg-background p-5 hover:border-bronze/40">
-                <FileCheck2 size={24} strokeWidth={1.6} className="text-bronze transition-transform duration-300 group-hover:-rotate-6" />
-                <p className="mt-3 font-semibold leading-snug">{d}</p>
+              <StaggerItem key={d} className="group hover-lift flex items-center gap-3 border bg-background p-5 hover:border-bronze/40">
+                <FileCheck2 size={24} strokeWidth={1.6} className="shrink-0 text-bronze transition-transform duration-300 group-hover:-rotate-6" />
+                <p className="font-semibold leading-snug">{d}</p>
               </StaggerItem>
             ))}
           </Stagger>

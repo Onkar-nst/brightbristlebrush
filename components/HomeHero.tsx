@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 import { Eyebrow } from "./Eyebrow";
 import { MagneticLink } from "./Motion";
 
@@ -38,7 +37,6 @@ export function HomeHero() {
         </motion.div>
       </motion.div>
 
-      <ChevronDown aria-hidden size={22} className="absolute inset-x-0 bottom-6 mx-auto animate-bounce text-white/70" />
     </section>
   );
 }
