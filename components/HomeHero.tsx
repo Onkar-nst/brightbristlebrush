@@ -14,7 +14,7 @@ export function HomeHero() {
   return (
     <section className="relative min-h-[100svh] overflow-hidden bg-black">
       <motion.div className="absolute inset-0" initial={{ scale: 1.1 }} animate={{ scale: 1 }} transition={{ duration: 3, ease: [0.22, 1, 0.36, 1] }}>
-        <Image src="/images/range.jpg" alt="Range of bristle bundles from Bright Brush and Bristle Works India" fill priority sizes="100vw" className="object-cover object-[center_75%]" />
+        <Image src="/images/hero-bundles-logo.jpg" alt="Range of bristle bundles from Bright Brush and Bristle Works India" fill priority sizes="100vw" className="object-cover object-[center_75%]" />
       </motion.div>
       <div className="absolute inset-0 bg-black/55 md:bg-transparent md:bg-gradient-to-r md:from-black/90 md:via-black/60 md:to-black/10" />
 

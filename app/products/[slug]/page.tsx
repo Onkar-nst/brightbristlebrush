@@ -8,6 +8,7 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { Stagger, StaggerItem } from "@/components/Motion";
 import { PageHero } from "@/components/PageHero";
 import { Photo } from "@/components/Photo";
+import { ProductGallery } from "@/components/ProductGallery";
 import { Reveal } from "@/components/Reveal";
 import { SectionHead } from "@/components/SectionHead";
 import { EU_APPROVAL } from "@/lib/catalogue";
@@ -39,7 +40,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <section className="py-12 md:py-17">
         <div className="mx-auto grid max-w-7xl items-start gap-10 px-5 md:px-6 lg:grid-cols-2 lg:gap-14">
           <Reveal className="lg:sticky lg:top-28">
-            <Photo src={p.hero} alt={p.name} ratio="aspect-[4/5]" priority sizes="(min-width: 1024px) 50vw, 100vw" className="border shadow-xl" />
+            <Image src={p.hero} alt={p.name} width={1200} height={1500} priority sizes="(min-width: 1024px) 50vw, 100vw" className="h-auto max-h-[80vh] w-full border object-contain shadow-xl" />
           </Reveal>
           <div>
             <Eyebrow className="mb-5">Overview</Eyebrow>
@@ -136,16 +137,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <section className="pb-12 md:pb-17">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
           <SectionHead label="Gallery" lines={["From our", "production floor."]} />
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {p.gallery.map((g) => (
-              <Reveal key={g.src} direction="scale">
-                <figure>
-                  <Photo src={g.src} alt={g.caption ?? p.name} ratio="aspect-[4/5]" sizes="(min-width: 1024px) 33vw, 50vw" className="border" />
-                  {g.caption && <figcaption className="mt-2 text-sm text-muted-foreground italic">{g.caption}</figcaption>}
-                </figure>
-              </Reveal>
-            ))}
-          </div>
+          <ProductGallery items={p.gallery} name={p.name} />
         </div>
       </section>
 

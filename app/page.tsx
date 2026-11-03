@@ -10,15 +10,21 @@ import { HomeHero } from "@/components/HomeHero";
 import { CountUp, MagneticLink, Stagger, StaggerItem } from "@/components/Motion";
 import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
-import { SectionHead } from "@/components/SectionHead";
 import { COMPLIANCE_BADGES } from "@/lib/catalogue";
+
+const STRIP_LOGOS = [
+  ...COMPLIANCE_BADGES,
+  { src: "/images/compliance/apha.png", label: "Animal & Plant Health Agency (APHA) compliant" },
+  { src: "/images/compliance/defra.png", label: "Department for Environment, Food & Rural Affairs", wide: true },
+  { src: "/images/compliance/european-commission.png", label: "European Commission (DG SANTE) compliant", wide: true },
+];
 import { BANK, FACTORY_PREMISES, FEATURES, HIGHLIGHTS, TRANSPORT } from "@/lib/site";
 
 const WELCOME_POINTS = [
   { icon: BadgeCheck, label: "ISO 9001 Certified" },
-  { icon: Factory, label: "Manufacturing in Uttar Pradesh" },
-  { icon: Plane, label: "Focused on Exports & Imports" },
-  { icon: Handshake, label: "Sister concern: Sri Sitaram Trading Co." },
+  { icon: Factory, label: "Manufacturing in-House" },
+  { icon: Plane, label: "Focused 100% Export" },
+  { icon: Handshake, label: "Sister concern Shree Sitaram Trading Company" },
 ];
 
 type Fact = { label: string; to?: number; before?: string; after?: string; text?: string };
@@ -53,6 +59,63 @@ export default function Home() {
       <HomeHero />
 
       <section className="py-8 md:py-12">
+        <Reveal className="marquee overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_6%,#000_94%,transparent)]">
+          <div className="marquee-track flex w-max gap-5 px-2.5 [--marquee-duration:60s]">
+            {[0, 1].map((copy) => FEATURES.map((f) => (
+              <div key={`${copy}-${f.title}`} aria-hidden={copy === 1} className="group w-[300px] shrink-0 border bg-surface p-6 transition-colors duration-300 hover:border-bronze/50 hover:bg-background sm:w-[340px]">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center bg-bronze/10 text-bronze transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
+                    <f.icon size={19} strokeWidth={1.75} />
+                  </span>
+                  <h3 className="text-lg font-semibold tracking-[-0.02em]">{f.title}</h3>
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.body}</p>
+              </div>
+            )))}
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="pb-15 md:pb-21">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 md:px-6 lg:grid-cols-[520px_1fr] lg:gap-16">
+          <Reveal className="lg:sticky lg:top-28 lg:self-start">
+            <div className="relative mx-auto max-w-xl lg:mx-0">
+              <div aria-hidden className="absolute -top-4 -left-4 hidden h-24 w-24 border border-bronze/30 md:block" />
+              <Image src="/images/welcome-range.jpg" alt="Bright Brush and Bristle Works India bristle range, an EU and UK approved establishment since 2019" width={1356} height={1159} sizes="(min-width: 1024px) 520px, 100vw" className="h-auto w-full border shadow-xl" />
+              <div className="absolute -bottom-6 left-6 bg-brand px-7 py-5 text-white shadow-2xl md:left-10">
+                <div className="text-4xl leading-none font-bold md:text-5xl"><CountUp to={2018} /></div>
+                <div className="mt-2 font-mono text-[10px] font-semibold tracking-[0.14em] text-white/70 uppercase">Established</div>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal direction="left" className="lg:py-2">
+            <Eyebrow className="mb-5">Welcome</Eyebrow>
+            <AnimatedHeading lines={["Dedicated Manufacturer of", "Premium Natural Boar Bristles"]} className="text-[clamp(2rem,3.4vw,2.85rem)]" />
+            <div aria-hidden className="mt-5 h-0.5 w-16 bg-saffron" />
+            <div className="mt-5 space-y-4 leading-relaxed text-muted-foreground md:text-[17px]">
+              <p>Bright Brush &amp; Bristle Works India is a specialised Indian manufacturer and exporter of premium natural pig hair and boar bristles, supplying professional brush manufacturers across Europe and the United Kingdom.</p>
+              <p>Unlike trading companies, we focus exclusively on the in-house manufacturing of boar bristles. We do not outsource production, allowing us to maintain direct control over our manufacturing processes, hygiene standards, product grading and quality.</p>
+              <p>We are an ISO 9001-certified company with established export compliance for the European Union and United Kingdom, and authorisation to export to the United States.</p>
+              <p>Our industrial heritage goes back to 1935 through our sister concern, Shri Sitaram Trading Company, founded by our grandfather, Shri Sitaram Sonkar. While our sister concern serves the Indian domestic market, Bright Brush &amp; Bristle Works India is dedicated to international trade and exports.</p>
+            </div>
+            <p className="mt-6 border-l-4 border-saffron bg-bronze/10 px-5 py-4 text-lg leading-relaxed font-semibold text-brand md:text-xl">Our commitment is simple: Premium natural bristles, in-house manufacturing, controlled quality and reliable international supply.</p>
+            <Stagger className="mt-7 grid gap-4 sm:grid-cols-2">
+              {WELCOME_POINTS.map((p) => (
+                <StaggerItem key={p.label} className="flex items-center gap-3">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center border bg-surface text-bronze"><p.icon size={19} strokeWidth={1.75} /></span>
+                  <span className="font-medium">{p.label}</span>
+                </StaggerItem>
+              ))}
+            </Stagger>
+            <Link href="/products/" className="group mt-8 inline-flex items-center gap-3 bg-brand px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-bronze">
+              Explore our products
+              <span className="flex h-6 w-6 items-center justify-center bg-white/15 transition-transform group-hover:translate-x-1"><ArrowRight size={14} /></span>
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="pb-12 md:pb-17">
         {/* Running carousel on phones and tablets, a row of four on desktop. */}
         <div className="marquee overflow-hidden lg:hidden">
           <div className="marquee-track flex w-max gap-4 pl-4 [--marquee-duration:24s]">
@@ -76,63 +139,6 @@ export default function Home() {
         </Stagger>
       </section>
 
-      <section className="pb-15 md:pb-21">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 md:px-6 lg:grid-cols-[440px_1fr] lg:gap-16">
-          <Reveal className="lg:h-full">
-            <div className="relative mx-auto max-w-md lg:mx-0 lg:h-full">
-              <div aria-hidden className="absolute -top-4 -left-4 hidden h-24 w-24 border border-bronze/30 md:block" />
-              <Photo src="/images/catalogue/calcutta-hand.jpg" alt="Calcutta extra stiff boar bristle bundle held in hand" ratio="aspect-[4/5] lg:aspect-auto lg:h-full" sizes="(min-width: 1024px) 440px, 100vw" className="border shadow-xl" />
-              <div className="absolute -bottom-6 left-6 bg-brand px-7 py-5 text-white shadow-2xl md:left-10">
-                <div className="text-4xl leading-none font-bold md:text-5xl"><CountUp to={2018} /></div>
-                <div className="mt-2 font-mono text-[10px] font-semibold tracking-[0.14em] text-white/70 uppercase">Established</div>
-              </div>
-            </div>
-          </Reveal>
-          <Reveal direction="left" className="lg:py-2">
-            <Eyebrow className="mb-5">Welcome</Eyebrow>
-            <AnimatedHeading lines={["Welcome to", "Bright Brush and Bristles Work India"]} className="text-[clamp(2rem,3.4vw,2.85rem)]" />
-            <div aria-hidden className="mt-5 h-0.5 w-16 bg-saffron" />
-            <div className="mt-5 space-y-4 leading-relaxed text-muted-foreground md:text-[17px]">
-              <p>Bright Brush and Bristles Work India is among the oldest companies in India operating in this industry. Established in 2018, the company has set up its manufacturing and marketing unit in Uttar Pradesh, India. We are a certified manufacturer of pig hair and boar bristles and have been awarded the ISO 9001 Quality Certificate.</p>
-              <p>Our sister concern, Sri Sitaram Trading Company, holds 40% to 55% of the Indian domestic market for pig bristles. As one of the largest manufacturer of bristles in India, we take pride in delivering quality products with transparency. This approach has enabled us to establish a strong foothold in the international market, and we are continuously expanding.</p>
-              <p>Bright Brush and Bristles Work India focuses solely on exports and imports. We do not engage in domestic sales, which are exclusively handled by our sister concern.</p>
-            </div>
-            <Stagger className="mt-7 grid gap-4 sm:grid-cols-2">
-              {WELCOME_POINTS.map((p) => (
-                <StaggerItem key={p.label} className="flex items-center gap-3">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center border bg-surface text-bronze"><p.icon size={19} strokeWidth={1.75} /></span>
-                  <span className="font-medium">{p.label}</span>
-                </StaggerItem>
-              ))}
-            </Stagger>
-            <Link href="/products/" className="group mt-8 inline-flex items-center gap-3 bg-brand px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-bronze">
-              Explore our products
-              <span className="flex h-6 w-6 items-center justify-center bg-white/15 transition-transform group-hover:translate-x-1"><ArrowRight size={14} /></span>
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="pb-12 md:pb-17">
-        <div className="mx-auto max-w-7xl px-5 md:px-6">
-          <SectionHead label="Features" lines={["Why buyers", "work with us."]} />
-        </div>
-        <Reveal className="marquee mt-8 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_6%,#000_94%,transparent)]">
-          <div className="marquee-track flex w-max gap-5 px-2.5 [--marquee-duration:60s]">
-            {[0, 1].map((copy) => FEATURES.map((f) => (
-              <div key={`${copy}-${f.title}`} aria-hidden={copy === 1} className="group w-[300px] shrink-0 border bg-surface p-6 transition-colors duration-300 hover:border-bronze/50 hover:bg-background sm:w-[340px]">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center bg-bronze/10 text-bronze transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
-                    <f.icon size={19} strokeWidth={1.75} />
-                  </span>
-                  <h3 className="text-lg font-semibold tracking-[-0.02em]">{f.title}</h3>
-                </div>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.body}</p>
-              </div>
-            )))}
-          </div>
-        </Reveal>
-      </section>
 
       <section className="pb-12 md:pb-17">
         <div className="mx-auto grid max-w-7xl gap-6 px-5 md:px-6 lg:grid-cols-2">
@@ -203,8 +209,8 @@ export default function Home() {
         <div className="marquee overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_6%,#000_94%,transparent)]">
           <div className="marquee-track flex w-max items-center [--marquee-duration:40s]">
             {[0, 1].map((copy) =>
-              COMPLIANCE_BADGES.map((b) => (
-                <div key={`${copy}-${b.src}`} aria-hidden={copy === 1 || undefined} className="relative h-28 w-28 shrink-0 border-r md:h-32 md:w-32">
+              STRIP_LOGOS.map((b) => (
+                <div key={`${copy}-${b.src}`} aria-hidden={copy === 1 || undefined} className={`relative h-28 shrink-0 border-r md:h-32 ${"wide" in b ? "w-56 md:w-64" : "w-28 md:w-32"}`}>
                   <Image src={b.src} alt={copy === 1 ? "" : b.label} fill sizes="128px" className="object-contain p-3" />
                 </div>
               )),

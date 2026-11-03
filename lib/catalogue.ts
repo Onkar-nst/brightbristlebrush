@@ -39,7 +39,7 @@ export const CATALOGUE: Catalogue[] = [
   {
     slug: "calcutta-extra-stiff-boar-bristle",
     tagline: "Boar Bristles",
-    hero: "/images/catalogue/calcutta-hand.jpg",
+    hero: "/images/catalogue/calcutta-new-caliper.jpg",
     blocks: [
       { title: "Origin & Sourcing", body: "Sourced from wild boar crossbreeds in West Bengal, including the Calcutta (Kolkata) region, and Bihar." },
       { title: "Limited Availability", body: "This raw material is available in limited quantities. Bright Brush & Bristle Works India purchases approximately 80–90% of the available raw bristles from these regions." },
@@ -48,23 +48,27 @@ export const CATALOGUE: Catalogue[] = [
     measure: { label: "Calcutta Stiff Hair Diameter", value: "0.45–0.60 mm", note: "Selected bristles exceed 0.60 mm. Root diameter • Specification supplied by the manufacturer." },
     applications: ["Hairbrush industry", "Heavy industrial brushes"],
     gallery: [
-      { src: "/images/catalogue/calcutta-measure.jpg" },
-      { src: "/images/catalogue/calcutta-caliper.jpg" },
-      { src: "/images/catalogue/calcutta-root.jpg", caption: "Root detail" },
+      { src: "/images/catalogue/calcutta-new-caliper.jpg", caption: "154.23 mm on a digital caliper" },
+      { src: "/images/catalogue/calcutta-new-hand.jpg" },
+      { src: "/images/catalogue/calcutta-new-long.jpg", caption: "Long sizes, thick natural bristles" },
+      { src: "/images/catalogue/calcutta-new-row.jpg" },
     ],
   },
   {
     slug: "grey-pig-hair",
     tagline: "Boar bristle / Pig hair / Hog hair",
-    hero: "/images/catalogue/natural-grey.jpg",
+    hero: "/images/catalogue/grey-new-main.jpg",
     facts: [["Colour", "Natural grey"], ["Length", "70 – 146 mm"], ["Quality", "95% tops"], ["Condition", "Thoroughly dried"], ["Packing", "25 kg boxes"]],
     applications: NATURAL_APPLICATIONS,
-    gallery: [{ src: "/images/catalogue/strip-closeup.jpg" }, { src: "/images/catalogue/strip-bundles.jpg" }, { src: "/images/catalogue/hero-bundles.jpg" }],
+    gallery: [
+      { src: "/images/catalogue/grey-new-main.jpg" },
+      { src: "/images/catalogue/grey-new-pile.jpg" },
+    ],
   },
   {
     slug: "butt-cut-root-cut-pig-bristles",
     tagline: "Extra Stiff Root-Cut / Butt-Cut Boar Bristles",
-    hero: "/images/catalogue/buttcut-range.jpg",
+    hero: "/images/catalogue/buttcut-new-main.jpg",
     grades: [
       ["Premium Calcutta Extra Stiff", "Our stiffest grade. Root-cut from double-XL Calcutta extra stiff bristles."],
       ["Extra Stiff", "First cut from extra-extra-long boar bristles."],
@@ -76,21 +80,27 @@ export const CATALOGUE: Catalogue[] = [
       ["Finished lengths", "28–64 mm, customised to buyer requirements"],
       ["Natural colours", "White • Black • Grey"],
       ["Bulb options", "Bulbs normally retained on first-cut bristles. First cut with bulbs removed is available on request."],
+      ["Stiffness types", "Premium Calcutta Extra Stiff Root Cut • Extra Stiff Root Cut • Firm • Medium / Semi Stiff • Soft"],
     ],
     applications: ["Hairbrush industry"],
     gallery: [
-      { src: "/images/catalogue/buttcut-detail.jpg", caption: "Cut-bristle detail" },
-      { src: "/images/catalogue/buttcut-long.jpg", caption: "Long bristles before cutting" },
+      { src: "/images/catalogue/buttcut-new-main.jpg" },
+      { src: "/images/catalogue/buttcut-new-range.jpg" },
     ],
   },
   {
     slug: "white-grey-black-natural-pig-hair",
     tagline: "Boar bristle / Pig hair / Hog hair",
-    hero: "/images/catalogue/hero-bundles.jpg",
+    hero: "/images/catalogue/natural-new-main.jpg",
     facts: [["Quality", "95% tops"], ["Condition", "Thoroughly dried"], ["Packing", "25 kg boxes"]],
     lengths: NATURAL_LENGTHS,
     applications: NATURAL_APPLICATIONS,
-    gallery: [{ src: "/images/catalogue/strip-brush.jpg" }, { src: "/images/catalogue/strip-bundles.jpg" }, { src: "/images/catalogue/strip-closeup.jpg" }],
+    gallery: [
+      { src: "/images/catalogue/natural-new-main.jpg" },
+      { src: "/images/catalogue/natural-new-white.jpg" },
+      { src: "/images/catalogue/natural-new-box.jpg" },
+      { src: "/images/catalogue/natural-new-box-hand.jpg" },
+    ],
   },
 ];
 
@@ -102,22 +112,22 @@ export const PROCESSING = {
   ],
   photos: [
     { src: "/images/catalogue/process-boiling.jpg", title: "Boiling", detail: "100°C • More than 3 hours" },
-    { src: "/images/catalogue/process-bleaching.jpg", title: "Hydrogen Peroxide Bleaching", detail: "60°C • More than 2 hours" },
+    { src: "/images/catalogue/process-bleaching.jpg", title: "Bleaching", detail: "60°C • 1:10 bleach to water • More than 2 hours" },
   ],
   steps: [
     "Boiling at 100°C for more than 3 hours.",
     "Washing and drying.",
-    "Hydrogen peroxide bleaching at 60°C for more than 2 hours.",
+    "Bleaching at 60°C at a ratio of 1:10 (bleach to 60°C water) for more than 2 hours.",
     "Washing again and thorough drying.",
     "Final production, packing and dispatch.",
   ],
   documents: [
-    "Veterinary health certificate",
-    "Shipment clearance certificate",
-    "Quarantine certificate",
-    "Naphthalene-free declaration",
-    "Plant approval certificates",
-  ],
+    { title: "Veterinary health certificate", aka: ["Veterinärgesundheits-bescheinigung", "Certificado sanitario veterinario", "EHC"] },
+    { title: "Shipment clearance certificate (SSC)", aka: ["Certificato di autorizzazione alla spedizione", "Certificado de autorización del envío", "Certificado de liberação da remessa"] },
+    { title: "Wildlife NOC certificate" },
+    { title: "Fumigation certificate" },
+    { title: "Animal by-product approval for export and import, for both EU and UK" },
+  ] as { title: string; aka?: string[] }[],
   note: "Documentation supplied to support clearance in the EU, UK and USA, as applicable to the shipment and destination.",
 };
 
@@ -134,7 +144,6 @@ export const EXPORT_INFO: [string, string][] = [
 
 export const COMPLIANCE = [
   "ISO 9001 Certified",
-  "CAPEXIL Registration",
   "Animal Quarantine & Certification Services (Veterinary / Health Certificate)",
   "European Union Export Authorization",
   "Great Britain Export Authorization",
@@ -146,7 +155,6 @@ export const COMPLIANCE = [
 
 export const COMPLIANCE_BADGES = [
   { src: "/images/compliance/iso.png", label: "ISO 9001 Certified" },
-  { src: "/images/compliance/capexil.png", label: "CAPEXIL Registration" },
   { src: "/images/compliance/quarantine.png", label: "Animal Quarantine & Certification Services (Veterinary / Health Certificate)" },
   { src: "/images/compliance/eu.png", label: "European Union Export Authorization" },
   { src: "/images/compliance/gb.png", label: "Great Britain Export Authorization" },

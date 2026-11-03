@@ -79,11 +79,25 @@ export default function ProcessingPage() {
       <section className="bg-surface py-12 md:py-17">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
           <SectionHead label="Documents" lines={["Accompanying", "Shipment Documents"]} note={PROCESSING.note} />
-          <Stagger className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {PROCESSING.documents.map((d) => (
-              <StaggerItem key={d} className="group hover-lift flex items-center gap-3 border bg-background p-5 hover:border-bronze/40">
-                <FileCheck2 size={24} strokeWidth={1.6} className="shrink-0 text-bronze transition-transform duration-300 group-hover:-rotate-6" />
-                <p className="font-semibold leading-snug">{d}</p>
+          <Stagger className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+            {PROCESSING.documents.map((d, i) => (
+              <StaggerItem key={d.title} className={`group hover-lift relative flex flex-col overflow-hidden border bg-background p-6 hover:border-bronze/40 ${d.aka ? "lg:col-span-3" : "lg:col-span-2"} ${i === 4 ? "sm:col-span-2 lg:col-span-2" : ""}`}>
+                <span aria-hidden className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-saffron transition-transform duration-500 group-hover:scale-x-100" />
+                <div className="flex items-center justify-between">
+                  <span className="flex h-11 w-11 items-center justify-center bg-bronze/10 text-bronze transition-transform duration-300 group-hover:-rotate-6">
+                    <FileCheck2 size={21} strokeWidth={1.6} />
+                  </span>
+                  <span className="font-mono text-xs font-bold tracking-[0.14em] text-muted-foreground/60">{String(i + 1).padStart(2, "0")}</span>
+                </div>
+                <p className="mt-5 text-lg font-semibold leading-snug tracking-[-0.01em]">{d.title}</p>
+                {d.aka && (
+                  <div className="mt-auto pt-5">
+                    <p className="font-mono text-[10px] font-bold tracking-[0.14em] text-bronze uppercase">Also issued as</p>
+                    <ul className="mt-2 flex flex-wrap gap-2">
+                      {d.aka.map((a) => <li key={a} className="border bg-surface px-2.5 py-1 text-[13px] leading-snug text-muted-foreground">{a}</li>)}
+                    </ul>
+                  </div>
+                )}
               </StaggerItem>
             ))}
           </Stagger>

@@ -100,7 +100,10 @@ const BASE_PRODUCTS: Product[] = [
   { name: "White/Grey/Black Natural Pig Hair", body: GREY_BODY, specs: GREY_SPECS, image: "/images/p-wgb.jpg" },
 ];
 
-export const PRODUCTS = BASE_PRODUCTS.map((p, i) => ({ ...p, ...CATALOGUE[i] }));
+// Butt Cut / Root Cut is listed first, as the client asked.
+export const PRODUCTS = BASE_PRODUCTS.map((p, i) => ({ ...p, ...CATALOGUE[i] })).sort(
+  (a, b) => Number(b.slug === "butt-cut-root-cut-pig-bristles") - Number(a.slug === "butt-cut-root-cut-pig-bristles"),
+);
 export const productHref = (slug: string) => `/products/${slug}/`;
 
 export const SERVICES = [
