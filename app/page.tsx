@@ -20,6 +20,11 @@ const STRIP_LOGOS = [
 ];
 import { BANK, FACTORY_PREMISES, FEATURES, HIGHLIGHTS, TRANSPORT } from "@/lib/site";
 
+const DHL_ROUTES = [
+  { title: "European Union", body: "Our shipments are generally cleared at Leipzig, Germany, which serves as a major point of entry into the EU, before being forwarded to their final destinations. Alternatively, shipments may be cleared directly at the destination country\u2019s port of entry. All customs clearance procedures are handled by DHL, and shipments are delivered under DAP (Delivered at Place) terms." },
+  { title: "United Kingdom", body: "Our shipments are primarily cleared through East Midlands Airport and London Stansted Airport, with customs clearance and onward delivery managed by DHL." },
+];
+
 const WELCOME_POINTS = [
   { icon: BadgeCheck, label: "ISO 9001 Certified" },
   { icon: Factory, label: "Manufacturing in-House" },
@@ -90,15 +95,22 @@ export default function Home() {
           </Reveal>
           <Reveal direction="left" className="lg:py-2">
             <Eyebrow className="mb-5">Welcome</Eyebrow>
-            <AnimatedHeading lines={["Dedicated Manufacturer of", "Premium Natural Boar Bristles"]} className="text-[clamp(2rem,3.4vw,2.85rem)]" />
+            <AnimatedHeading lines={["Premium Natural Boar Bristle Manufacturer", "& Pig Bristle Exporter from India"]} className="text-[clamp(1.8rem,3vw,2.5rem)]" />
             <div aria-hidden className="mt-5 h-0.5 w-16 bg-saffron" />
             <div className="mt-5 space-y-4 leading-relaxed text-muted-foreground md:text-[17px]">
-              <p>Bright Brush &amp; Bristle Works India is a specialised Indian manufacturer and exporter of premium natural pig hair and boar bristles, supplying professional brush manufacturers across Europe and the United Kingdom.</p>
-              <p>Unlike trading companies, we focus exclusively on the in-house manufacturing of boar bristles. We do not outsource production, allowing us to maintain direct control over our manufacturing processes, hygiene standards, product grading and quality.</p>
-              <p>We are an ISO 9001-certified company with established export compliance for the European Union and United Kingdom, and authorisation to export to the United States.</p>
-              <p>Our industrial heritage goes back to 1935 through our sister concern, Shri Sitaram Trading Company, founded by our grandfather, Shri Sitaram Sonkar. While our sister concern serves the Indian domestic market, Bright Brush &amp; Bristle Works India is dedicated to international trade and exports.</p>
+              <p>Bright Brush &amp; Bristle Works India is a specialized boar bristle manufacturer in India and an established pig bristle exporter from India, supplying premium natural boar bristles, pig hair, and hog bristles to professional brush manufacturers worldwide.</p>
+              <p>As a trusted natural boar bristle supplier and pig hair manufacturer in India, we specialize exclusively in the in-house processing, grading, and manufacturing of natural pig bristles for luxury hairbrushes, grooming brushes, paintbrushes, and industrial brush applications.</p>
+              <p>Our product range includes Calcutta Extra-Stiff Boar Bristles, natural black and grey long-size bristles, and premium first-cut and second-cut root-cut bristles, available in various lengths, colors, and grades to meet the specific requirements of international brush manufacturers.</p>
+              <p>As an established hog hair exporter from India, we supply wholesale boar bristles and operate as a bulk pig bristles supplier, with a monthly finished production capacity of approximately 2,500–3,000 kilograms.</p>
+              <p>Unlike trading companies, we maintain complete control over our manufacturing operations. Every stage, from raw material selection and boiling to bleaching, sorting, grading, and final packaging, is carried out within our own manufacturing facility.</p>
             </div>
-            <p className="mt-6 border-l-4 border-saffron bg-bronze/10 px-5 py-4 text-lg leading-relaxed font-semibold text-brand md:text-xl">Our commitment is simple: Premium natural bristles, in-house manufacturing, controlled quality and reliable international supply.</p>
+            <h3 className="mt-8 text-xl font-semibold tracking-[-0.01em] md:text-2xl">EU &amp; UK Approved Animal By-Product Establishment Since 2019</h3>
+            <div className="mt-4 space-y-4 leading-relaxed text-muted-foreground md:text-[17px]">
+              <p>We are an ISO 9001:2015-certified manufacturer with an EU and UK approved Animal By-Product (ABP) establishment. Our processing procedures and export documentation support the international supply of treated natural pig bristles to European and British brush manufacturers.</p>
+              <p>Our manufacturing heritage dates back to 1935, through our sister concern, Shri Sitaram Trading Company, reflecting generations of experience in India&rsquo;s traditional pig bristle industry.</p>
+              <p>Whether you require premium natural boar bristles for luxury grooming products or natural pig hair for brush manufacturing, we offer consistent quality, dependable bulk supply, and professional international export services.</p>
+            </div>
+            <p className="mt-6 border-l-4 border-saffron bg-bronze/10 px-5 py-4 text-lg leading-relaxed font-semibold text-brand md:text-xl">Bright Brush &amp; Bristle Works India — The Gold Standard of Indian Bristles.</p>
             <Stagger className="mt-7 grid gap-4 sm:grid-cols-2">
               {WELCOME_POINTS.map((p) => (
                 <StaggerItem key={p.label} className="flex items-center gap-3">
@@ -168,13 +180,35 @@ export default function Home() {
       <section className="pb-12 md:pb-17">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
           <Reveal>
-            <div className="grid overflow-hidden bg-brand lg:grid-cols-2">
-              <div className="self-center p-7 md:p-12">
-                <AnimatedHeading light lines={["Premium Bristles", "Delivered Globally"]} />
-                <p className="mt-4 max-w-md leading-relaxed text-white/80">High-quality pig hair and boar bristles, crafted with precision and shipped worldwide.</p>
-                <div className="mt-6"><MagneticLink href="/products/" className="bg-white text-brand">Products</MagneticLink></div>
+            <div className="grid gap-8 bg-[linear-gradient(180deg,#fbd84d_0%,#ffd200_45%,#ffcc00_100%)] p-6 text-brand md:p-10 lg:grid-cols-[1.25fr_1fr] lg:gap-10">
+              <div>
+                <AnimatedHeading lines={["Premium Bristles", "Delivered Globally"]} className="text-[clamp(1.8rem,3vw,2.6rem)]" />
+                <p className="mt-4 text-[15px] leading-relaxed text-brand/85">We maintain a dedicated DHL shipping account for our exports to the European Union and the United Kingdom, ensuring reliable customs clearance and timely delivery.</p>
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  {DHL_ROUTES.map((r) => (
+                    <div key={r.title} className="border border-brand/15 bg-white/45 p-4">
+                      <p className="font-mono text-[11px] font-bold tracking-[0.14em] uppercase">{r.title}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-brand/80">{r.body}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-3 flex flex-col gap-4 border border-brand/15 bg-white/45 p-4 sm:flex-row sm:items-center">
+                  <div className="shrink-0 sm:w-36">
+                    <p className="text-3xl leading-none font-semibold tracking-tight">6–7</p>
+                    <p className="mt-1 font-mono text-[10px] font-bold tracking-[0.14em] uppercase">working days or less</p>
+                  </div>
+                  <p className="text-sm leading-relaxed text-brand/80"><strong className="text-brand">DHL Customs Clearance &amp; Delivery Time:</strong> From the date of pickup, the entire process, including international transportation, customs clearance, and final delivery, typically takes 6–7 working days or less for shipments to the European Union and the United Kingdom. DHL&rsquo;s efficient logistics network and prompt customs handling enable us to maintain consistently fast and reliable delivery schedules.</p>
+                </div>
               </div>
-              <Photo src="/images/catalogue/export-cartons.jpg" alt="Export cartons packed and wrapped on a pallet" ratio="aspect-[16/10] lg:aspect-auto lg:h-full lg:min-h-[22rem]" sizes="(min-width: 1024px) 50vw, 100vw" />
+              <div className="lg:sticky lg:top-28 lg:self-start">
+                <Image src="/images/dhl-delivery.jpg" alt="DHL aircraft, truck and van used for our EU and UK shipments" width={588} height={330} sizes="(min-width: 1024px) 40vw, 100vw" className="h-auto w-full shadow-2xl" />
+                <div className="mt-4 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 bg-brand px-5 py-3.5 text-white">
+                  <span className="font-mono text-[11px] font-bold tracking-[0.14em] text-[#ffcc00] uppercase">DHL Account Number</span>
+                  <span className="text-xl font-semibold tracking-wide">531297214</span>
+                </div>
+                <p className="mt-4 text-sm leading-relaxed text-brand/80">This established logistics arrangement enables us to provide efficient, reliable, and streamlined shipping services to our European and UK customers. Our established partnership with DHL allows us to provide customers with a streamlined, dependable, and efficient international shipping experience.</p>
+                <div className="mt-5"><MagneticLink href="/products/" className="bg-brand text-white">Products</MagneticLink></div>
+              </div>
             </div>
           </Reveal>
         </div>

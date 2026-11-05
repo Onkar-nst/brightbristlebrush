@@ -58,7 +58,7 @@ export function ExportCompliance() {
                 </StaggerItem>
               ))}
             </Stagger>
-            <Photo src="/images/catalogue/export-cartons.jpg" alt="Export cartons packed and wrapped on a pallet" ratio="aspect-[4/5] lg:aspect-auto lg:h-full" sizes="(min-width: 1024px) 40vw, 100vw" className="border" />
+            <Photo src="/images/export-cartons-warehouse.jpg" alt="Bright Brush export cartons on a pallet truck in the warehouse" ratio="aspect-[4/5] lg:aspect-[1/1]" sizes="(min-width: 1024px) 40vw, 100vw" className="border lg:self-start" />
           </div>
         </div>
       </section>
@@ -66,10 +66,10 @@ export function ExportCompliance() {
       <section className="bg-surface py-12 md:py-17">
         <div className="mx-auto max-w-7xl px-5 md:px-6">
           <SectionHead label="Quality & Compliance" lines={["Fully Compliant for", "International Export Markets"]} />
-          <Stagger className="mt-10 mx-auto grid max-w-5xl grid-cols-2 border-t border-l sm:grid-cols-4">
+          <Stagger className="mt-10 mx-auto grid max-w-2xl grid-cols-2 border-t border-l sm:grid-cols-3">
             {COMPLIANCE_BADGES.map((b) => (
               <StaggerItem key={b.src} className="relative aspect-square border-r border-b">
-                <Image src={b.src} alt={b.label} fill sizes="(min-width: 1024px) 20vw, 50vw" className="object-contain p-8 transition-transform duration-300 hover:scale-105 md:p-12 lg:p-14" />
+                <Image src={b.src} alt={b.label} fill sizes="(min-width: 1024px) 20vw, 50vw" className="object-contain p-6 transition-transform duration-300 hover:scale-105 md:p-8" />
               </StaggerItem>
             ))}
           </Stagger>

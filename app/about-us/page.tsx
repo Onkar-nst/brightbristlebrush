@@ -12,7 +12,7 @@ import { EMAIL, LOCATIONS, PHONES, telHref } from "@/lib/site";
 export const metadata: Metadata = { title: "About Us" };
 
 const HERITAGE = [
-  { year: "1935", body: "Shri Sitaram establishes Shri Sitaram Trading Company in Barhaj, Uttar Pradesh, trading natural pig bristles for international export through agents and brokers." },
+  { year: "1935", body: "Great Grandfather Sarjoo Prasad establishes Shri Sitaram Trading Company in Barhaj, Uttar Pradesh, trading natural pig bristles for international export through agents and brokers, including Begbie, Phillips & Hayley, Limited." },
   { year: "1970s", body: "Export activities continue into the 1970s, building a family tradition in the knowledge, craftsmanship and processing of natural bristles." },
   { year: "2018", body: "In 2018, we established Bright Brush and Bristle Works India as a dedicated manufacturing and export establishment, carrying forward this legacy into modern international markets." },
   { year: "Today", body: "Nearly nine decades after the beginning of our family\u2019s involvement in the industry, we continue operating from Barhaj, preserving the traditional craftsmanship that defines our identity." },
@@ -53,7 +53,7 @@ export default function AboutPage() {
             <Eyebrow className="mb-5">Our Heritage</Eyebrow>
             <AnimatedHeading lines={["A Legacy", "Since 1935"]} />
             <div className="mt-6 space-y-4 leading-relaxed text-muted-foreground md:text-[17px]">
-              <p>The story of Bright Brush and Bristle Works India begins in 1935, when our grandfather, Shri Sitaram, established Shri Sitaram Trading Company in the historic town of Barhaj, Uttar Pradesh, India.</p>
+              <p>The story of Bright Brush and Bristle Works India begins in 1935, when our Great Grandfather Sarjoo Prasad established Shri Sitaram Trading Company in the historic town of Barhaj, Uttar Pradesh, India.</p>
               <p>During the British era, the company was involved in the natural pig bristle trade, supplying materials for international export through established agents and brokers. These commercial activities continued into the 1970s, establishing a family tradition rooted in the knowledge, craftsmanship, and processing of natural bristles.</p>
               <p>Although the earlier export operations eventually ceased, the expertise and traditional hand-processing methods remained part of our family&rsquo;s heritage.</p>
             </div>

@@ -119,9 +119,15 @@ export const LOCATIONS = [
   { title: "Mumbai Sales & Distribution Godown", address: "Bright Brush And Bristle Works India, Shop No 1 & 2 Sai Darshan Building, Ground Floor, Purna Road, Purna Bhiwandi. 421302.", phone: "+91-9565914040", email: "armaan@brightbristlebrush.com" },
 ];
 
-export const CERTIFICATES = [
+export const CERTIFICATES: { title: string; src: string; pages?: string[]; pdf?: string }[] = [
+  {
+    title: "EU Registered Exporter (REX)",
+    src: "/images/rex-1.jpg",
+    pages: ["/images/rex-1.jpg", "/images/rex-2.jpg"],
+    pdf: "/docs/registered-exporter-rex.pdf",
+  },
   { title: "ISO Certificate", src: "/images/iso.jpg" },
-  { title: "ICE Certificate", src: "/images/ice.jpg" },
+  { title: "IEC Certificate", src: "/images/ice.jpg" },
   { title: "GST Certificate", src: "/images/gst.jpg" },
   { title: "Trademark Certificate", src: "/images/trademark.jpg" },
 ];

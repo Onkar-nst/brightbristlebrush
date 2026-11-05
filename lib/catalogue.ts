@@ -155,7 +155,8 @@ export const COMPLIANCE = [
 
 export const COMPLIANCE_BADGES = [
   { src: "/images/compliance/iso.png", label: "ISO 9001 Certified" },
-  { src: "/images/compliance/quarantine.png", label: "Animal Quarantine & Certification Services (Veterinary / Health Certificate)" },
+  { src: "/images/compliance/animal-husbandry.png", label: "Government of India, Department of Animal Husbandry and Dairying", wide: true },
+  { src: "/images/compliance/commerce-industry.png", label: "Government of India, Ministry of Commerce and Industry", wide: true },
   { src: "/images/compliance/eu.png", label: "European Union Export Authorization" },
   { src: "/images/compliance/gb.png", label: "Great Britain Export Authorization" },
   { src: "/images/compliance/usa.png", label: "USA" },
